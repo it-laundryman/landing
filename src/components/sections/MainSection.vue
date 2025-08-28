@@ -16,13 +16,12 @@
       </div>
     </header>
     <div class="main-info">
-      <span class="main-info__subtitle">12% Annual ROI</span>
       <div class="main-info__content">
         <div class="main-info__title-wrapper">
           <h1 class="main-info__title">
             VERDANA Sanur
           </h1>
-          <span class="main-info__description">Premium Bali real estate</span>
+          <span class="main-info__description">Residences</span>
         </div>
 
         <div class="main-info__top">
@@ -39,15 +38,15 @@
 
         <div class="tile">
           <div class="tile__item">
-            <span class="tile__count">9-12%</span>
+            <span class="tile__percent">9-12<span class="tile__count">%</span></span>
             <p class="tile__description">Annual ROI</p>
           </div>
           <div class="tile__item">
-            <span class="tile__count">$245K</span>
+            <span class="tile__count">$<span class="tile__percent">245K</span></span>
             <p class="tile__description">Starting Investment</p>
           </div>
           <div class="tile__item">
-            <span class="tile__count">Q1 2027</span>
+            <span class="tile__percent">Q1 2027</span>
             <p class="tile__description">Income Generation</p>
           </div>
           <div class="tile__item">
@@ -133,7 +132,7 @@ import UiButton from '../ui/uiButton.vue';
 
 .header__lang {
   color: #fff;
-  font-family: "Wix Madefor Display";
+  font-family: "Plus Jakarta Sans";
   font-weight: 400;
   font-size: vw(20);
   line-height: 100%;
@@ -161,7 +160,7 @@ import UiButton from '../ui/uiButton.vue';
 
 .main-info {
   position: absolute;
-  bottom: -42%;
+  bottom: -40%;
   left: vw(45);
   right: vw(45);
   display: grid;
@@ -172,46 +171,25 @@ import UiButton from '../ui/uiButton.vue';
 
   //  padding: vw(30) vw(45) 0;
   // height: ;
-  &__subtitle {
-    font-family: 'Vollkorn';
-    font-size: vw(32);
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-transform: uppercase;
-    color: $yellow;
-    grid-column: 1;
-    grid-row: 1;
-    margin-bottom: vw(-9);
-  }
 
   &__content {
     position: relative;
     display: grid;
     grid-template-columns: 55% 45%;
-
-    &::after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      height: 67vw;
-      width: vw(1);
-      background-color: rgb($yellow, 0.24);
-      content: "";
-    }
   }
 
   &__title-wrapper {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    padding-bottom: vw(95);
+    padding-bottom: vw(65);
   }
 
   &__title {
-    padding-top: vw(24);
-    font-family: 'Vollkorn';
-    font-size: vw(93);
-    line-height: vw(93);
+    font-family: 'Agatho';
+    font-weight: 500;
+    font-size: vw(100);
+    line-height: vw(95);
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $white;
@@ -221,47 +199,34 @@ import UiButton from '../ui/uiButton.vue';
   }
 
   &__description {
-    margin-bottom: vw(-26);
-    margin-right: vw(-16);
+    margin-bottom: vw(18);
+    margin-right: vw(150);
     grid-column: 1;
     grid-row: 1;
     align-self: end;
     justify-self: end;
-    font-family: 'Bikham Cyr Script';
-    font-size: vw(65);
-    line-height: vw(65);
+    font-family: 'MonteCarlo';
+    font-weight: 400;
+    font-size: vw(52);
+    line-height: vw(48);
     letter-spacing: 0px;
     color: $yellow;
     text-transform: initial;
-    max-width: vw(350);
   }
 
   &__top {
-    padding-top: vw(24);
-    border-left: vw(1) solid rgb($yellow, 0.24);
     grid-column: 2;
     grid-row: 1;
     display: grid;
-    justify-content: center;
-    justify-items: center;
+    // justify-content: center;
+    justify-items: flex-end;
     position: relative;
-
-    // display: flex;
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 165%;
-      height: vw(1);
-      background-color: rgb($yellow, 0.24);
-      content: "";
-    }
   }
 
   &__text {
     max-width: vw(385);
-    font-family: 'Wix Madefor Display';
-    font-size: vw(18);
+    font-family: 'Plus Jakarta Sans';
+    font-size: vw(16);
     line-height: 100%;
     letter-spacing: 0px;
     color: $white;
@@ -288,6 +253,7 @@ import UiButton from '../ui/uiButton.vue';
   &__item {
     flex: 1;
     border: vw(1) solid rgb($yellow, 0.24);
+    border-radius: vw(15);
     padding: vw(20) vw(45);
     display: flex;
     flex-direction: column;
@@ -295,12 +261,19 @@ import UiButton from '../ui/uiButton.vue';
 
   }
 
-  &__item:last-child {
-    border-right: none;
-  }
-
   &__count {
     font-family: 'Vollkorn';
+    font-weight: 400;
+    font-size: vw(40);
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: $yellow;
+  }
+
+  &__percent {
+    font-family: 'Agatho';
+    font-weight: 400;
     font-size: vw(40);
     line-height: 100%;
     letter-spacing: 0px;
@@ -309,7 +282,7 @@ import UiButton from '../ui/uiButton.vue';
   }
 
   &__description {
-    font-family: 'Wix Madefor Display';
+    font-family: 'Plus Jakarta Sans';
     font-size: vw(12);
     line-height: 100%;
     letter-spacing: 0px;

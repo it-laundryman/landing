@@ -8,6 +8,7 @@
       <img src="@/assets/images/founder.png" alt="founder" class="founder__img">
     </div>
     <div class="founder__description">
+      <span class="founder__symbol">”</span>
       <p class="founder__text">"During a motorcycle journey through the Himalayas, I realized that true luxury isn't
         about excess—it's about
         having everything you need without thinking about it. This insight became the foundation of LABNA CAPITAL's
@@ -28,8 +29,8 @@
 <style scoped lang="scss">
 .founder {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: vw(45);
+  grid-template-columns: 1fr 1.3fr 1fr;
+  column-gap: vw(55);
   padding: vw(45) vw(45) 0;
   align-items: flex-start;
 
@@ -41,24 +42,26 @@
   }
 
   &__heading {
-    font-family: 'Koh Santepheap';
-    font-size: vw(48);
-    line-height: vw(57);
+    font-family: 'Agatho';
+    font-weight: 500;
+    font-size: vw(56);
+    line-height: vw(56);
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $white;
   }
 
   &__subheading {
-    font-family: 'Bikham Cyr Script';
-    font-size: vw(65);
+    font-family: 'MonteCarlo';
+    font-weight: 400;
+    font-size: vw(48);
     line-height: vw(65);
     letter-spacing: 0px;
     color: $yellow;
     display: inline-block;
     margin-left: auto;
-    margin-right: vw(-30);
-    margin-top: vw(-5);
+    margin-right: vw(-19);
+    margin-top: vw(-29);
   }
 
   &__image {
@@ -66,6 +69,9 @@
     grid-column: 2;
     position: relative;
     z-index: 1;
+    display: inline-block;
+    border-radius: vw(200) vw(200) vw(12) vw(12);
+    overflow: hidden;
   }
 
   &__img {
@@ -76,9 +82,22 @@
   &__description {
     grid-column: 3;
     grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__symbol {
+    font-family: 'Adamina';
+    font-weight: 400;
+    font-size: vw(128);
+    line-height: vw(65);
+    letter-spacing: 0px;
+    color: $yellow-light;
+    margin-bottom: vw(-25);
   }
 
   &__text {
+    text-wrap: balance;
     font-family: 'Vollkorn500';
     font-size: vw(16);
     line-height: vw(22);
@@ -88,7 +107,6 @@
 
   &__about {
     padding-top: vw(45);
-    border-top: vw(1) solid rgb($yellow, 0.26);
     margin-left: vw(-45);
     margin-right: vw(-45);
     padding-left: vw(45);

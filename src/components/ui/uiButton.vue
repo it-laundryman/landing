@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps, computed } from "vue";
 
-type ButtonVariant = "solid" | "solid-yellow" | "outline" | "outline-yellow" | "outline-transparent-yellow" | "ghost";
+type ButtonVariant = "solid" | "solid-yellow" | "solid-green" | "outline" | "outline-yellow" | "outline-dark-yellow" | "outline-brown" | "outline-transparent-yellow" | "ghost";
 type ButtonShape = "rounded" | "circle";
 type ButtonSize = "sm" | "md" | "lg";
 
@@ -48,8 +48,8 @@ const classes = computed(() => {
 }
 
 .base-button--md {
-  padding: 8px 20px;
-  font-size: 16px;
+  padding: vw(8) vw(12);
+  font-size: vw(12);
 }
 
 .base-button--lg {
@@ -64,12 +64,17 @@ const classes = computed(() => {
 
 .base-button--circle {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  padding: 0;
+  // width: 80px;
+  // height: 80px;
+  // padding: 0;
 }
 
 /* варианты */
+.base-button--solid-green {
+  background-color: $green;
+  color: $white;
+}
+
 .base-button--solid-yellow {
   background-color: $yellow;
   color: $black;
@@ -81,19 +86,37 @@ const classes = computed(() => {
 
 .base-button--outline-yellow {
   background: transparent;
-  border: 1px solid $yellow;
+  border: vw(1) solid $yellow;
+  color: $yellow;
+}
+
+.base-button--outline-dark-yellow {
+  background: transparent;
+  border: vw(1) solid $yellow-dark;
   color: $yellow;
 }
 
 .base-button--outline-transparent-yellow {
   background: transparent;
-  border: 1px solid rgb($yellow, 0.26);
+  border: vw(1) solid rgb($yellow, 0.26);
   color: $yellow;
 }
 
 .base-button--outline-yellow:hover {
   background-color: $yellow;
   color: $black;
+}
+
+.base-button--outline-brown {
+  background: transparent;
+  border: vw(1) solid $brown;
+  color: $brown;
+}
+
+.base-button--outline-brown.active {
+  background: $brown;
+  border: vw(1) solid $brown;
+  color: $white;
 }
 
 .base-button--ghost {

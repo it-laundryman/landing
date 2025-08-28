@@ -1,10 +1,17 @@
 $design-width: 1920;
 
+$green: #002611;
+$green-light: #1B3C25;
 $yellow: #C9B380;
+$yellow-light: #C2A568;
+$yellow-middle: #B2985A;
+$yellow-dark: #A98C47;
 $white: #FFFFFF;
 $gray-light: #F0ECE4;
 $black: #000000;
 $black-light: #1E1E1E;
+$black-second: #252729;
+$brown: #2F261F;
 
 // @function vw($value, $size: 1265) {
 //   @return calc($value / $size) * 100vw;

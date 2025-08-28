@@ -1,0 +1,11 @@
+<template>
+  <svg viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 1L1 6L6 11" stroke="#B2985A" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</template>
+
+<script setup lang="ts">
+
+</script>
+
+<style scoped></style>
