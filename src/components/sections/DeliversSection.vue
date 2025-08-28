@@ -4,8 +4,8 @@
       <div class="delivery__header">
         <div class="delivery__title-container">
           <div class="delivery__title-wrapper">
-            <h2 class="delivery__heading">Why VERDANA Delivers Superior Returns</h2>
-            <span class="delivery__subheading">grade investment</span>
+            <h2 class="delivery__heading">Why VERDANA Delivers Superior Returns</h2>
+            <span class="delivery__subheading"><span>grade</span> <span>investment</span></span>
           </div>
         </div>
 
@@ -18,32 +18,62 @@
       </div>
       <div class="delivery__tile">
         <div class="delivery__item">
-          <span class="delivery__item-title">Guaranteed Rental Management</span>
-          <p class="delivery__item-text">
-            Professional rental optimization with guaranteed occupancy rates and transparent revenue sharing. Complete
-            hands-off investment experience.
-          </p>
+          <UiCircle>
+            <template #content>
+              <div class="delivery__item-content">
+                <span class="delivery__item-title">Guaranteed Rental Management</span>
+                <p class="delivery__item-text">
+                  Professional rental optimization with guaranteed occupancy rates and transparent revenue sharing.
+                  Complete
+                  hands-off investment experience.
+                </p>
+              </div>
+            </template>
+          </UiCircle>
         </div>
         <div class="delivery__item">
-          <span class="delivery__item-title">Premium Location Appreciation</span>
-          <p class="delivery__item-text">
-            Sanur's 99% development completion ensures scarcity value. Historical 8-12% annual appreciation with strong
-            future growth prospects.
-          </p>
+          <UiCircle>
+            <template #content>
+              <div class="delivery__item-content">
+                <span class="delivery__item-title">Premium Location Appreciation</span>
+                <p class="delivery__item-text">
+                  Sanur's 99% development completion ensures scarcity value. Historical 8-12% annual appreciation with
+                  strong
+                  future growth prospects.
+                </p>
+              </div>
+            </template>
+          </UiCircle>
         </div>
         <div class="delivery__item">
-          <span class="delivery__item-title">Tax Optimization Structure</span>
-          <p class="delivery__item-text">
-            Compliant ownership structure optimized for international investors. Professional tax planning and legal
-            compliance included.
-          </p>
+          <UiCircle>
+            <template #content>
+              <div class="delivery__item-content">
+                <span class="delivery__item-title">Tax Optimization Structure</span>
+                <p class="delivery__item-text">
+                  Compliant ownership structure optimized for international investors. Professional tax planning and
+                  legal
+                  compliance included.
+                </p>
+              </div>
+            </template>
+          </UiCircle>
+
         </div>
         <div class="delivery__item">
-          <span class="delivery__item-title">Complete Legal Compliance</span>
-          <p class="delivery__item-text">
-            Institutional-level documentation, government permits, and transparent legal structure. Full due diligence
-            support provided.
-          </p>
+          <UiCircle>
+            <template #content>
+              <div class="delivery__item-content">
+                <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
+                <p class="delivery__item-text">
+                  Institutional-level documentation, government permits, and transparent legal structure. Full due
+                  diligence
+                  support provided.
+                </p>
+              </div>
+            </template>
+          </UiCircle>
+
         </div>
       </div>
     </div>
@@ -51,6 +81,8 @@
 </template>
 
 <script setup lang="ts">
+import UiCircle from '../ui/uiCircle.vue';
+
 
 </script>
 
@@ -61,32 +93,11 @@
 
   &__container {
     position: relative;
-    border-left: vw(1) solid $yellow;
-    border-right: vw(1) solid $yellow;
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: vw(-45);
-      right: vw(-45);
-      height: vw(1);
-      background-color: $yellow;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: vw(-45);
-      right: vw(-45);
-      height: vw(1);
-      background-color: $yellow;
-    }
   }
 
   &__header {
-    padding: vw(50) vw(45);
+    padding: vw(50) 0;
     display: flex;
     gap: vw(10);
   }
@@ -96,27 +107,30 @@
   }
 
   &__title-wrapper {
-    width: min-content;
     display: grid;
     align-items: flex-end;
+    width: 76%;
   }
 
   &__heading {
-    font-family: 'Vollkorn';
-    font-size: vw(48);
-    line-height: vw(57);
+    font-family: 'Agatho';
+    font-weight: 500;
+    font-size: vw(56);
+    line-height: vw(56);
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $black;
     grid-row: 1;
     grid-column: 1;
+
   }
 
   &__subheading {
-    font-family: 'Bikham Cyr Script';
+
+    font-family: 'MonteCarlo';
     font-weight: 400;
-    font-size: vw(65);
-    line-height: 1;
+    font-size: vw(52);
+    line-height: vw(48);
     letter-spacing: 0px;
     color: $yellow;
     display: inline-block;
@@ -125,7 +139,11 @@
     position: relative;
     margin-left: auto;
     bottom: vw(-20);
-    right: vw(-5);
+    right: vw(50);
+
+    span:first-child {
+      text-transform: capitalize;
+    }
   }
 
   &__intro {
@@ -143,31 +161,28 @@
   &__tile {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border-top: vw(1) solid $yellow;
+    padding: vw(40);
+    margin: vw(-40);
+    overflow: hidden;
   }
 
   &__item {
-    padding: vw(45) vw(40);
+    width: 100%;
+    aspect-ratio: 1;
     position: relative;
-
-    &::after {
-      position: absolute;
-      top: 0;
-      transform: translateY(-50%) translateX(-50%);
-      left: vw(45);
-      width: vw(22);
-      height: vw(22);
-      content: "";
-      border-radius: 50%;
-      background-color: $yellow;
-    }
   }
 
-  &__item:not(:last-child) {
-    border-right: vw(1) solid $yellow;
+  &__item-content {
+    display: flex;
+    flex-direction: column;
+    padding: vw(45) vw(40);
+    padding: vw(60) vw(40);
+    width: 100%;
+    height: 100%;
   }
 
   &__item-title {
+    text-wrap: balance;
     font-family: 'Vollkorn';
     font-size: vw(24);
     line-height: vw(30);
