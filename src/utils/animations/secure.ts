@@ -1,5 +1,5 @@
-// @ts-nocheck
-export function animateSecure(gsap, tl) {
+
+export function animateSecure(gsap: GSAP): GSAPTimeline {
 
   const tlGallery = gsap.timeline({});
 

@@ -10,18 +10,9 @@
           translate: ['100%', 0, 0],
         },
       }" :navigation="navigation" :modules="[Navigation, Autoplay]">
-      <SwiperSlide :class="bem('app-swiper__slide', { full: slidesPerView === 1 })" v-for="(item, index) in slides"
-        :key="index">
+      <SwiperSlide v-for="(item, index) in slides" :key="index">
 
         <slot>
-          <div class="app-swiper__item">
-            <img class="app-swiper__item-image" :src="item.image" alt="" width="656" height="520" ref="image" />
-            <div class="app-swiper__item-title" v-if="item.name">
-              <span class="app-swiper__item-title__icon">{{ index + 1 }}</span>
-              <p class="app-swiper__item-title__text">{{ item.name }}</p>
-            </div>
-            <p class="app-swiper__item-description" v-if="item.description" v-html="item.description" />
-          </div>
         </slot>
       </SwiperSlide>
     </Swiper>
@@ -35,12 +26,14 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
-import { useMq } from "vue3-mq";
-import { Navigation, Autoplay } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper/modules";
 import { computed, onMounted, ref } from "vue";
+import { useBreakpoint } from "@/composables/useBreakpoint"
+
+
 const props = defineProps({
   slides: {
     type: Array,
@@ -70,7 +63,8 @@ const navigation = computed(() => {
     nextEl: `.${props.keyBtn.next}`,
   };
 });
-const breakpointsMq = useMq();
+
+const { isMobile } = useBreakpoint()
 const image = ref();
 const breakpoints = {
   320: {
@@ -90,7 +84,7 @@ onMounted(() => {
     const observer = new ResizeObserver((entries) => {
       const firstImage = entries[0];
       const top = firstImage?.contentRect?.height / 2 - 24;
-      styleBtn.value = breakpointsMq.desktop_xl ? "" : `top: ${top}px;`;
+      styleBtn.value = !isMobile ? "" : `top: ${top}px;`;
     });
 
     observer.observe(image?.value?.[0]);

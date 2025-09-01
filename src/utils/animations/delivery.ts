@@ -1,5 +1,5 @@
-// @ts-nocheck
-export function animateDelivery(gsap, tl) {
+
+export function animateDelivery(gsap: GSAP): GSAPTimeline {
 
   const tlGallery = gsap.timeline({});
 

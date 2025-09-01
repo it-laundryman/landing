@@ -31,18 +31,18 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
+
 interface IProps {
   isOpen: boolean
 }
-import { onClickOutside } from '@vueuse/core'
 import UiButton from '@/components/ui/uiButton.vue';
+import { onClickOutside } from '@vueuse/core';
 import { ref } from 'vue';
 
 const emit = defineEmits(['close'])
 const props = defineProps<IProps>()
 
-const menu = ref<HTMLElement>(null)
+const menu = ref<HTMLElement>()
 
 const closeMenu = () => {
   console.log(menu)

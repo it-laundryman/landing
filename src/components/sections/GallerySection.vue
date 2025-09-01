@@ -25,17 +25,7 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
-import {
-  animateGallery
-
-} from "@/utils/animations";
 import UiButton from '../ui/uiButton.vue';
-import { onMounted, nextTick, watch } from "vue";
-import { useMq } from "vue3-mq";
-import gsap from "gsap";
-
-const breakpointsMq = useMq();
 // onMounted(async () => {
 //   await nextTick();
 //   console.log(breakpointsMq);

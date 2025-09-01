@@ -101,12 +101,12 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
-import IconFolder from '../icons/iconFolder.vue';
+
 import IconArrowLeft from '../icons/IconArrowLeft.vue';
+import IconFolder from '../icons/iconFolder.vue';
+import IconLibrary from '../icons/iconLibrary.vue';
 import IconMuseum from '../icons/iconMuseum.vue';
 import IconUnlock from '../icons/iconUnlock.vue';
-import IconLibrary from '../icons/iconLibrary.vue';
 
 import { onMounted } from "vue";
 
@@ -116,12 +116,12 @@ import { register } from 'swiper/element/bundle';
 register();
 
 const spaceBetween = 10;
-const onProgress = (e) => {
+const onProgress = (e: any) => {
   const [swiper, progress] = e.detail;
   console.log(progress)
 };
 
-const onSlideChange = (e) => {
+const onSlideChange = () => {
   console.log('slide changed')
 }
 

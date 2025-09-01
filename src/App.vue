@@ -1,23 +1,24 @@
 <script setup lang="ts">
-// @ts-nocheck
-import axios from 'axios'
-import { onMounted, onUnmounted, ref, nextTick, watch } from 'vue';
-import { updateBreakpoints, useMq } from "vue3-mq";
+
+import axios from 'axios';
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { nextTick, onMounted, ref, watch } from 'vue';
+import { useBreakpoint } from "@/composables/useBreakpoint"
+
+const { isMobile } = useBreakpoint()
+
 // import TestPage from '@/components/testPage.vue';
 import HomePage from '@/components/pages/HomePage.vue';
 import {
   animateDelivery,
   animateGallery,
   animateSecure
-
 } from "@/utils/animations";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const rows = ref<string[][]>([])
-const breakpointsMq = useMq();
 
 let currentTimeline: gsap.core.Timeline | null = null;
 let scrollTriggers: ScrollTrigger[] = [];
@@ -38,7 +39,10 @@ const cleanupAnimations = () => {
 
   // Дополнительно убиваем все ScrollTriggers
   ScrollTrigger.getAll().forEach(trigger => {
-    if (trigger.trigger === ".main" || trigger.trigger === ".gallery") {
+    const triggerElement = trigger.trigger;
+    if (triggerElement &&
+      (triggerElement.classList.contains("main") ||
+        triggerElement.classList.contains("gallery"))) {
       trigger.kill();
     }
   });
@@ -56,8 +60,10 @@ const createDesktopAnimations = () => {
       id: "main-timeline"
     },
   });
-
-  currentTimeline.add(animateGallery(gsap, currentTimeline));
+  const galleryTimeline = animateGallery(gsap);
+  if (galleryTimeline) {
+    currentTimeline.add(galleryTimeline);
+  }
   // Добавьте другие анимации...
 };
 
@@ -73,12 +79,6 @@ const createMobileAnimations = () => {
 
 
 onMounted(async () => {
-  updateBreakpoints({
-    breakpoints: {
-      mobile: 0,
-      desktop: 576
-    },
-  });
   try {
     const sheetId = '1CDaIrPsdO4MWI7h80yWNcow9Od0U_SDZGJvd2Z9Vigo' // твой ID
     const url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vSkiSxlkiKCITuSRhwufp436BFpHg3BF1A2pZobmSMOvrAUQ-FRPVsXOe-iLDq60A/pub?gid=48642444&single=true&output=csv`
@@ -94,7 +94,7 @@ onMounted(async () => {
   await nextTick();
 
   watch(
-    () => breakpointsMq.mobile,
+    () => isMobile.value,
     (isMobile) => {
       nextTick(() => {
         if (!isMobile) {
