@@ -21,11 +21,10 @@
           <UiCircle>
             <template #content>
               <div class="delivery__item-content">
-                <span class="delivery__item-title">Guaranteed Rental Management</span>
+                <span class="delivery__item-title">Professional Rental Management</span>
                 <p class="delivery__item-text">
-                  Professional rental optimization with guaranteed occupancy rates and transparent revenue sharing.
-                  Complete
-                  hands-off investment experience.
+                  Our in-house team handles guest bookings, property care, and marketing. We ensure stable, optimized
+                  returns with zero operational burden.
                 </p>
               </div>
             </template>
@@ -35,11 +34,10 @@
           <UiCircle>
             <template #content>
               <div class="delivery__item-content">
-                <span class="delivery__item-title">Premium Location Appreciation</span>
+                <span class="delivery__item-title">Established Location Advantages</span>
                 <p class="delivery__item-text">
-                  Sanur's 99% development completion ensures scarcity value. Historical 8-12% annual appreciation with
-                  strong
-                  future growth prospects.
+                  Sanur delivers consistent, predictable returns, supported by steady tourist demand and major ongoing
+                  infrastructure investments.
                 </p>
               </div>
             </template>
@@ -49,11 +47,9 @@
           <UiCircle>
             <template #content>
               <div class="delivery__item-content">
-                <span class="delivery__item-title">Tax Optimization Structure</span>
+                <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
                 <p class="delivery__item-text">
-                  Compliant ownership structure optimized for international investors. Professional tax planning and
-                  legal
-                  compliance included.
+                  All villas come with full legal documentation, clear titles, and direct purchase from the developer.
                 </p>
               </div>
             </template>
@@ -67,8 +63,7 @@
                 <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
                 <p class="delivery__item-text">
                   Institutional-level documentation, government permits, and transparent legal structure. Full due
-                  diligence
-                  support provided.
+                  diligence support provided.
                 </p>
               </div>
             </template>
@@ -151,9 +146,10 @@ import UiCircle from '../ui/uiCircle.vue';
   }
 
   &__intro-text {
-    font-family: 'Wix Madefor Display';
-    font-size: vw(17);
-    line-height: vw(22);
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 100%;
     letter-spacing: 0px;
     color: $black-light;
   }
@@ -162,6 +158,8 @@ import UiCircle from '../ui/uiCircle.vue';
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: vw(40);
+    padding-left: vw(10);
+    padding-right: vw(10);
     margin: vw(-40);
     overflow: hidden;
   }
@@ -176,25 +174,27 @@ import UiCircle from '../ui/uiCircle.vue';
     display: flex;
     flex-direction: column;
     padding: vw(45) vw(40);
-    padding: vw(60) vw(40);
+    padding: vw(60) vw(50) vw(60);
     width: 100%;
     height: 100%;
   }
 
   &__item-title {
     text-wrap: balance;
-    font-family: 'Vollkorn';
+    font-family: 'Agatho';
+    font-weight: 500;
     font-size: vw(24);
-    line-height: vw(30);
+    line-height: vw(25);
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $yellow;
     display: block;
-    margin-bottom: vw(10);
+    margin-bottom: vw(20);
   }
 
   &__item-text {
-    font-family: 'Wix Madefor Display';
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 300;
     font-size: vw(14);
     line-height: 100%;
     letter-spacing: 0px;

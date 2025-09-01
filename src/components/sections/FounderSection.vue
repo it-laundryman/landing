@@ -1,24 +1,48 @@
 <template>
   <section class="founder">
-    <div class="founder__title">
-      <h2 class="founder__heading">FOUNDER MESSAGE</h2>
-      <span class="founder__subheading">We are</span>
+    <div class="tile">
+      <div class="tile__item">
+        <span class="tile__percent">9-12<span class="tile__count">%</span></span>
+        <p class="tile__description">Projected Annual ROI</p>
+      </div>
+      <div class="tile__item">
+        <span class="tile__count">$<span class="tile__percent">245K</span></span>
+        <p class="tile__description">Starting Investment</p>
+      </div>
+      <div class="tile__item">
+        <span class="tile__percent">Q1 2027</span>
+        <p class="tile__description">Income Generation</p>
+      </div>
+      <div class="tile__item">
+        <span class="tile__count">11</span>
+        <p class="tile__description">Exclusive Units Only</p>
+      </div>
     </div>
-    <div class="founder__image">
-      <img src="@/assets/images/founder.png" alt="founder" class="founder__img">
+    <div class="founder__content">
+
+      <div class="founder__title">
+        <h2 class="founder__heading">FOUNDER MESSAGE</h2>
+        <span class="founder__subheading">We are</span>
+      </div>
+      <div class="founder__image">
+        <img src="@/assets/images/founder.png" alt="founder" class="founder__img">
+      </div>
+      <div class="founder__description">
+        <span class="founder__symbol">”</span>
+        <p class="founder__text">We believe luxury isn’t about excess. It’s about creating places people genuinely
+          connect with. Homes and spaces designed around lifestyle, culture, and long-term value.
+          We see Southeast Asia as one of the most exciting markets in the world, where growth and cultural richness
+          come together. We’re combining smart design, sustainability, and authenticity to create lasting impact for
+          residents, investors, and communities.
+        </p>
+      </div>
+      <div class="founder__about">
+        <p class="founder__about-text">
+          Labna Capital was built on a shared vision and 50+ years of experience in real estate, strategy, and finance.
+          From global boardrooms to local communities, we’ve seen what makes projects truly meaningful.</p>
+      </div>
     </div>
-    <div class="founder__description">
-      <span class="founder__symbol">”</span>
-      <p class="founder__text">"During a motorcycle journey through the Himalayas, I realized that true luxury isn't
-        about excess—it's about
-        having everything you need without thinking about it. This insight became the foundation of LABNA CAPITAL's
-        invisible service philosophy."</p>
-    </div>
-    <div class="founder__about">
-      <p class="founder__about-text">
-        What began as a personal search for meaningful and lasting value has grown into LABNA PROPERTIES — a company
-        shaped by principles, not trends.</p>
-    </div>
+
   </section>
 </template>
 
@@ -27,12 +51,73 @@
 </script>
 
 <style scoped lang="scss">
+.tile {
+  grid-column: 1/3;
+  grid-row: 1;
+  display: flex;
+  gap: vw(10);
+
+  &__item {
+    flex: 1;
+    border: vw(1) solid rgb($yellow, 0.24);
+    border-radius: vw(15);
+    padding: vw(20) vw(45);
+    display: flex;
+    flex-direction: column;
+    gap: vw(10);
+
+  }
+
+  // &__count {
+  //   font-family: 'Vollkorn';
+  //   font-weight: 700;
+  //   font-size: vw(40);
+  //   line-height: 100%;
+  //   letter-spacing: 0px;
+  //   text-transform: uppercase;
+  //   color: $yellow;
+  // }
+  &__count {
+    font-family: 'Agatho';
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: $yellow;
+  }
+
+  &__percent {
+    font-family: 'Agatho';
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: $yellow;
+  }
+
+  &__description {
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
+    font-size: vw(12);
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: rgb($white, 0.77);
+  }
+}
+
 .founder {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr 1fr;
-  column-gap: vw(55);
-  padding: vw(45) vw(45) 0;
-  align-items: flex-start;
+
+  padding: 0 vw(45) vw(65);
+
+  &__content {
+    margin-top: vw(130);
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: vw(42);
+  }
 
   &__title {
     display: grid;
@@ -65,7 +150,7 @@
   }
 
   &__image {
-    grid-row: 1/4;
+    grid-row: 1/3;
     grid-column: 2;
     position: relative;
     z-index: 1;
@@ -80,6 +165,7 @@
   }
 
   &__description {
+    margin-top: vw(35);
     grid-column: 3;
     grid-row: 1 / 3;
     display: flex;
@@ -98,7 +184,8 @@
 
   &__text {
     text-wrap: balance;
-    font-family: 'Vollkorn500';
+    font-family: 'Wix Madefor Display';
+    font-weight: 400;
     font-size: vw(16);
     line-height: vw(22);
     letter-spacing: 0px;
@@ -112,15 +199,15 @@
     padding-left: vw(45);
     padding-right: vw(45);
     grid-column: 1 / 4;
-    grid-row: 3 / 5;
+    grid-row: 2 / 3;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: vw(45);
+    column-gap: vw(42);
   }
 
   &__about-text {
-    font-family: 'Wix Madefor Display';
-    font-size: vw(17);
+    font-family: 'Plus Jakarta Sans';
+    font-size: vw(16);
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;

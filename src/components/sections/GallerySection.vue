@@ -149,6 +149,7 @@ import UiButton from '../ui/uiButton.vue';
   &__button-text {
 
     font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
     font-size: vw(17);
     line-height: vw(18);
     letter-spacing: 0%;

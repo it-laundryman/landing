@@ -6,8 +6,8 @@
           & Documentation</h2>
       </div>
       <p class="documentation__description">
-        VERDANA combines Balinese heritage with modern luxury, creating the perfect retreat for discerning individuals
-        seeking authentic tropical living.
+        We ensure secure international investment with full legal compliance, clear documentation, and
+        institutional-grade transparency.
       </p>
     </div>
     <!-- <swiper :modules="[Navigation, Autoplay]" :slides-per-view="3" :space-between="50" virtual>
@@ -147,9 +147,9 @@ onMounted(() => {
 
   &__header {
     display: grid;
-    grid-template-columns: 1fr 28%;
+    grid-template-columns: 1fr 30%;
     justify-content: space-between;
-    margin-bottom: vw(60);
+    margin-bottom: vw(40);
   }
 
   &__title-block {

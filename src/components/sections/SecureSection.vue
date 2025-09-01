@@ -2,12 +2,12 @@
   <section class="secure">
     <div class="secure__header">
       <div class="secure__title-block">
-        <h2 class="secure__heading">Secure Your<br />VERDANA Investment Position</h2>
+        <h2 class="secure__heading">Secure<br />Your Spot</h2>
         <span class="secure__subheading">Premium location</span>
       </div>
       <div class="secure__header-content">
-        <p class="secure__description">Limited availability: Only 11 exclusive units in Bali's premium location.
-          Professional investment team ready to guide you through the complete process.</p>
+        <p class="secure__description">Only 11 villas are available in one of Bali’s most sought-after locations. Our
+          expert team is here to guide you every step of the way.</p>
         <UiButton class="secure__button" variant="solid-yellow" size="md" shape="rounded">
           Explore Complete VERDANA Experience </UiButton>
       </div>
@@ -18,9 +18,10 @@
           <template #content>
             <div class="secure__item-content">
               <span class="secure__item-title">Schedule<br />Investment Consultation</span>
-              <p class="secure__item-description"> Comprehensive analysis with our investment specialists. Review
-                financial
-                projections, legal structure, and complete documentation. </p>
+              <p class="secure__item-description">Connect with our experienced investment team for a personalized
+                session. We’ll walk you through projected returns, legal frameworks, ownership models, and all
+                supporting documentation.
+              </p>
             </div>
           </template>
         </UiCircle>
@@ -31,8 +32,8 @@
             <div class="secure__item-content">
               <span class="secure__item-title">Request
                 Financial Model</span>
-              <p class="secure__item-description">Detailed investment analysis including cash flow projections, tax
-                implications, and scenario planning for informed decisions.
+              <p class="secure__item-description">Get a clear picture of your investment with easy-to-understand cash
+                flow projections, tax insights, and real-life examples.
               </p>
             </div>
           </template>
@@ -44,8 +45,8 @@
             <div class="secure__item-content">
               <span class="secure__item-title">Book<br />Site Visit
               </span>
-              <p class="secure__item-description">Experience VERDANA in person with guided tour of show units, location
-                analysis, and investment facilities overview.
+              <p class="secure__item-description">Experience VERDANA firsthand with a guided tour of our show units, a
+                walk through the neighborhood, and a full overview of the investment opportunity.
               </p>
             </div>
           </template>
@@ -70,7 +71,7 @@ import UiCircle from '../ui/uiCircle.vue';
 
   &__header {
     display: grid;
-    grid-template-columns: 1fr 28%;
+    grid-template-columns: 1fr 29%;
     justify-content: space-between;
     margin-bottom: vw(60);
   }
@@ -104,8 +105,8 @@ import UiCircle from '../ui/uiCircle.vue';
 
     display: inline-block;
     margin-left: auto;
-    margin-right: vw(65);
-    margin-top: vw(-65);
+    margin-right: vw(84);
+    margin-top: vw(-40);
   }
 
   &__header-content {}
@@ -122,7 +123,7 @@ import UiCircle from '../ui/uiCircle.vue';
   &__button {
     padding-top: vw(15);
     padding-bottom: vw(15);
-    margin-top: vw(20);
+    margin-top: vw(45);
     font-family: 'Wix Madefor Display';
     font-weight: 400;
     font-size: vw(14);
@@ -168,7 +169,7 @@ import UiCircle from '../ui/uiCircle.vue';
   &__item-content {
     width: 100%;
     aspect-ratio: 1;
-    padding: vw(67) vw(65) vw(65) vw(67);
+    padding: vw(67) vw(50) vw(65) vw(67);
     display: flex;
     flex-direction: column;
   }
@@ -190,7 +191,7 @@ import UiCircle from '../ui/uiCircle.vue';
   &__item-description {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
-    font-size: vw(16);
+    font-size: vw(15);
     line-height: 100%;
     letter-spacing: 0px;
     color: $white;
