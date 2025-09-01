@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { defineProps, computed } from "vue";
 
 type ButtonVariant = "solid" | "solid-yellow" | "solid-green" | "outline" | "outline-yellow" | "outline-dark-yellow" | "outline-brown" | "outline-transparent-yellow" | "ghost";

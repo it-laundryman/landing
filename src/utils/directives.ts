@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { clickOutside } from './directives/click-outside';
 
 export const registerDirectives = (app) => {

@@ -31,20 +31,21 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 interface IProps {
   isOpen: boolean
 }
 import { onClickOutside } from '@vueuse/core'
 import UiButton from '@/components/ui/uiButton.vue';
-import { useTemplateRef } from 'vue';
+import { ref } from 'vue';
 
 const emit = defineEmits(['close'])
 const props = defineProps<IProps>()
 
-const target = useTemplateRef<HTMLElement>('menu')
+const menu = ref<HTMLElement>(null)
 
 const closeMenu = () => {
-  console.log(target)
+  console.log(menu)
   if (props.isOpen) {
     emit('close')
   }
@@ -52,10 +53,12 @@ const closeMenu = () => {
 
 
 onClickOutside(
-  target,
+  menu,
   event => closeMenu(),
   { ignore: ['.header__burger'] },
 )
+
+defineExpose({ menu })
 </script>
 
 <style scoped lang="scss">

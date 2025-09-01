@@ -109,15 +109,15 @@ onMounted(async () => {
   );
 })
 
-onUnmounted(() => {
-  // Очистка при размонтировании компонента
-  if (currentTimeline) {
-    currentTimeline.kill();
-  }
-  ScrollTrigger.getAll().forEach(trigger => {
-    trigger.kill();
-  });
-});
+// onUnmounted(() => {
+//   // Очистка при размонтировании компонента
+//   if (currentTimeline) {
+//     currentTimeline.kill();
+//   }
+//   ScrollTrigger.getAll().forEach(trigger => {
+//     trigger.kill();
+//   });
+// });
 </script>
 
 <template>

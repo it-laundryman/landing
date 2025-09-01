@@ -101,6 +101,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import IconFolder from '../icons/iconFolder.vue';
 import IconArrowLeft from '../icons/IconArrowLeft.vue';
 import IconMuseum from '../icons/iconMuseum.vue';

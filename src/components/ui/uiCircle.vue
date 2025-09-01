@@ -8,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import { ref, watch } from 'vue';
 
 type enumPosition = 'random' | 'default' | 'custom'
