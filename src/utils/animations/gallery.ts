@@ -37,17 +37,37 @@ export function animateGallery(gsap: GSAP): GSAPTimeline | null {
       // scrub: false,
       // scrub: true,
 
-      end: "bottom",
-      markers: true
+      end: "bottom"
       // pin: true,
     },
   });
-  tlHeader.fromTo(
+  // tlHeader.fromTo(
+  //   ".gallery__list",
+  //   {
+  //     x: '0%',
+  //   },
+  //   {
+  //     x: `${percentOffset}%`,
+  //     // duration: 24,
+  //   }
+  // );
+
+  gsap.fromTo(
     ".gallery__list",
     {
       x: '0%',
     },
     {
+      scrollTrigger: {
+        trigger: ".gallery",
+        start: "top+=90px bottom",
+        scrub: 1,
+        // scrub: false,
+        // scrub: true,
+
+        end: "bottom",
+        // pin: true,
+      },
       x: `${percentOffset}%`,
       // duration: 24,
     }
