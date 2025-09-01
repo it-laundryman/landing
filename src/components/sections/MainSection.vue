@@ -1,7 +1,7 @@
 <template>
   <div class="main-section">
     <header class="header">
-      <div class="header__burger">
+      <div class="header__burger" @click="toggleMenu">
         <span class="header__burger-line"></span>
         <span class="header__burger-line"></span>
       </div>
@@ -15,6 +15,7 @@
         <UiButton class="header__btn" variant="solid-yellow" shape="rounded" size="lg">Contact us</UiButton>
       </div>
     </header>
+    <MainMenu :class="{ 'opened': isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
     <div class="main-info">
       <div class="main-info__content">
         <div class="main-info__title-wrapper">
@@ -60,9 +61,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import UiButton from '../ui/uiButton.vue';
+import MainMenu from './main/mainMenu.vue';
 
+const isOpenMenu = ref(false)
 
+const toggleMenu = () => {
+  isOpenMenu.value = !isOpenMenu.value
+}
 </script>
 
 <style scoped lang="scss">

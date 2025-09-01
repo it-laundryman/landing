@@ -11,6 +11,7 @@ declare module 'vue' {
     AnalysisSection: typeof import('./src/components/sections/AnalysisSection.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     CalculatorSection: typeof import('./src/components/sections/CalculatorSection.vue')['default']
+    copy: typeof import('./src/components/icons/iconUnlock copy.vue')['default']
     DecorSection: typeof import('./src/components/sections/DecorSection.vue')['default']
     DeliversSection: typeof import('./src/components/sections/DeliversSection.vue')['default']
     DocumentationSection: typeof import('./src/components/sections/DocumentationSection.vue')['default']
@@ -24,10 +25,12 @@ declare module 'vue' {
     IconArrowLeft: typeof import('./src/components/icons/IconArrowLeft.vue')['default']
     IconArrowTopRight: typeof import('./src/components/icons/IconArrowTopRight.vue')['default']
     IconFolder: typeof import('./src/components/icons/iconFolder.vue')['default']
+    IconLibrary: typeof import('./src/components/icons/iconLibrary.vue')['default']
     IconMuseum: typeof import('./src/components/icons/iconMuseum.vue')['default']
     IconPlus: typeof import('./src/components/icons/IconPlus.vue')['default']
     IconUnlock: typeof import('./src/components/icons/iconUnlock.vue')['default']
     InvestmentSection: typeof import('./src/components/sections/InvestmentSection.vue')['default']
+    MainMenu: typeof import('./src/components/sections/main/mainMenu.vue')['default']
     MainSection: typeof import('./src/components/sections/MainSection.vue')['default']
     PerfomanceSection: typeof import('./src/components/sections/PerfomanceSection.vue')['default']
     SecureSection: typeof import('./src/components/sections/SecureSection.vue')['default']
@@ -35,5 +38,6 @@ declare module 'vue' {
     UiButton: typeof import('./src/components/ui/uiButton.vue')['default']
     UiCircle: typeof import('./src/components/ui/uiCircle.vue')['default']
     UiSelect: typeof import('./src/components/ui/uiSelect.vue')['default']
+    UiSlider: typeof import('./src/components/ui/uiSlider.vue')['default']
   }
 }

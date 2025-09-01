@@ -73,16 +73,25 @@ const classes = computed(() => {
 .base-button--solid-green {
   background-color: $green;
   color: $white;
+
+  &:hover {
+    background-color: $yellow-light;
+  }
 }
 
 .base-button--solid-yellow {
   background-color: $yellow;
   color: $black;
+
+  &:hover {
+    background-color: $brown;
+    color: $yellow-dark;
+  }
 }
 
-.base-button--solid-yellow:hover {
-  opacity: 0.9;
-}
+// .base-button--solid-yellow:hover {
+//   opacity: 0.9;
+// }
 
 .base-button--outline-yellow {
   background: transparent;
@@ -100,6 +109,10 @@ const classes = computed(() => {
   background: transparent;
   border: vw(1) solid rgb($yellow, 0.26);
   color: $yellow;
+
+  &:hover {
+    border: vw(1) solid $yellow;
+  }
 }
 
 .base-button--outline-yellow:hover {
