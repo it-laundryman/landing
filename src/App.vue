@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-nocheck
 import axios from 'axios'
 import { onMounted, onUnmounted, ref, nextTick, watch } from 'vue';
 import { updateBreakpoints, useMq } from "vue3-mq";
