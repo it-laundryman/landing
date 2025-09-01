@@ -1,33 +1,42 @@
 <template>
-  <div class="menu" ref="menu">
-    <span class="menu__close" @click="$emit('close')"><img src="@/assets/images/close.svg" alt="close"></span>
-    <nav class="menu__nav">
-      <div class="menu__logo">
-        <img src="@/assets/images/logo-menu.svg" alt="logo" class="menu__logo-img">
+  <div class="menu" ref="menuElement">
+    <div class="menu__wrapper">
+      <span class="menu__close" @click="$emit('close')"><img src="@/assets/images/close.svg" alt="close"></span>
+      <div class="menu__content">
+        <nav class="menu__nav">
+          <div class="menu__logo">
+            <img src="@/assets/images/logo-menu.svg" alt="logo" class="menu__logo-img">
+          </div>
+          <ul class="menu__list">
+            <li class="menu__item" v-for="item in menu" :key="item.id">
+              <span class="menu__link" :class="{ 'active': activeSection === item.id }"
+                @click="scrollToSection(item.id)">
+                {{ item.label }}
+              </span>
+            </li>
+            <!-- <li class="menu__item">
+              <span class="menu__link">select residents</span>
+            </li>
+            <li class="menu__item">
+              <span class="menu__link">Investment calculator</span>
+            </li>
+            <li class="menu__item">
+              <span class="menu__link">location</span>
+            </li> -->
+          </ul>
+          <div class="menu__contacts">
+            <a href="tel:+6281245555555" class="menu__phone">+62 81 245 555 555</a>
+            <UiButton class="menu__contact" variant="solid-yellow" shape="rounded" size="lg">Contact us</UiButton>
+          </div>
+        </nav>
       </div>
-      <ul class="menu__list">
-        <li class="menu__item">
-          <span class="menu__link">about us</span>
-        </li>
-        <li class="menu__item">
-          <span class="menu__link">select residents</span>
-        </li>
-        <li class="menu__item">
-          <span class="menu__link">Investment calculator</span>
-        </li>
-        <li class="menu__item">
-          <span class="menu__link">location</span>
-        </li>
-      </ul>
-      <div class="menu__contacts">
-        <a href="tel:+6281245555555" class="menu__phone">+62 81 245 555 555</a>
-        <UiButton class="menu__contact" variant="solid-yellow" shape="rounded" size="lg">Contact us</UiButton>
+      <div class="menu__background">
+        <img class="menu__background-image" src="@/assets/images/bg-investment.svg" alt="">
       </div>
-    </nav>
-    <div class="menu__background">
-      <img class="menu__background-image" src="@/assets/images/bg-investment.svg" alt="">
+
     </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
@@ -37,28 +46,70 @@ interface IProps {
 }
 import UiButton from '@/components/ui/uiButton.vue';
 import { onClickOutside } from '@vueuse/core';
-import { ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const emit = defineEmits(['close'])
 const props = defineProps<IProps>()
 
-const menu = ref<HTMLElement>()
+const menu = [
+  { id: "about", label: "about us" },
+  { id: "residents", label: "select residents" },
+  { id: "calculator", label: "Investment calculator" },
+  { id: "location", label: "location" },
+];
+
+const menuElement = ref<HTMLElement>()
+const activeSection = ref<string>("");
 
 const closeMenu = () => {
-  console.log(menu)
+  console.log(menuElement)
   if (props.isOpen) {
     emit('close')
   }
 }
 
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+let observer: IntersectionObserver | null = null;
+
+onMounted(() => {
+  const options = {
+    root: null,
+    rootMargin: "0px 0px -70% 0px", // подсветка чуть раньше, когда секция уже видна
+    threshold: 0.1,
+  };
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        activeSection.value = entry.target.id;
+      }
+    });
+  }, options);
+
+  menu.forEach((item) => {
+    const el = document.getElementById(item.id);
+    if (el) observer?.observe(el);
+  });
+});
+
+onBeforeUnmount(() => {
+  observer?.disconnect();
+});
+
 
 onClickOutside(
-  menu,
+  menuElement,
   event => closeMenu(),
   { ignore: ['.header__burger'] },
 )
 
-defineExpose({ menu })
+defineExpose({ menuElement })
 </script>
 
 <style scoped lang="scss">
@@ -67,16 +118,38 @@ defineExpose({ menu })
   left: 0;
   position: absolute;
   background-color: $green;
-  padding: vw(30) vw(55) vw(50) vw(50);
+  // padding: vw(30) vw(55) vw(50) vw(50);
+  // padding-top: 0;
+  padding-bottom: calc(100svh - 12%);
   max-width: vw(450);
   width: 100%;
-  height: 100%;
+  // height: 100%;
   overflow: hidden;
   z-index: 10;
   transition: transform .7s ease-in-out, visibility .7s ease-in-out;
   // opacity: 0;
   visibility: hidden;
   transform: translateX(-100vw);
+
+  &__wrapper {
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 100%;
+    // left: vw(-50);
+    // right: vw(-55);
+    // padding-bottom: calc(100svh - 12%);
+  }
+
+  &__content {
+    position: relative;
+    padding: vw(30) vw(55) vw(50) vw(50);
+    height: 100%;
+    overflow-y: auto;
+    // left: vw(50);
+    // right: vw(55);
+    // padding-bottom: calc(100svh - 12%);
+  }
 
   &.opened {
     // opacity: 1;

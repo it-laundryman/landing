@@ -6,7 +6,7 @@
         <span class="perfomance__subheading">Future projections</span>
       </div>
       <p class="perfomance__description">
-        Historical data and future projections based on Sanur market analysis and tourism growth trends in Bali.
+        Historical performance and forward-looking projections from Sanur’s real estate and tourism growth trends.
       </p>
     </div>
     <div class="perfomance__list">
@@ -153,7 +153,6 @@ import UiButton from '../ui/uiButton.vue';
     text-transform: uppercase;
     color: $yellow-light;
     display: inline-block;
-    margin-bottom: vw(15);
   }
 
   &__item-percent {

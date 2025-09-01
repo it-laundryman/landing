@@ -1,13 +1,13 @@
 <template>
   <MainSection />
-  <FounderSection />
-  <DeliversSection />
+  <FounderSection id="about" />
+  <DeliversSection id="residents" />
   <GallerySection />
   <InvestmentSection />
-  <CalculatorSection />
+  <CalculatorSection id="calculator" />
   <AnalysisSection />
   <DecorSection />
-  <PerfomanceSection />
+  <PerfomanceSection id="location" />
   <DocumentationSection />
   <SecureSection />
   <AppFooter />

@@ -25,11 +25,20 @@ export function animateGallery(gsap: GSAP): GSAPTimeline | null {
   const percentOffset = -(overflowWidth / totalContentWidth * 100);
 
   const tlHeader = gsap.timeline({
+    // defaults: {
+    //   ease: "none",
+    // },
+    // paused: true,
+
     scrollTrigger: {
       trigger: ".gallery",
-      start: "top-=50% top",
+      start: "top+=90px bottom",
       scrub: 1,
-      end: "+=1000",
+      // scrub: false,
+      // scrub: true,
+
+      end: "bottom",
+      markers: true
       // pin: true,
     },
   });

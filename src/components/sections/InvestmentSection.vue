@@ -8,7 +8,7 @@
 
         <!-- левая часть -->
         <div class="investment__aside">
-          <h5 class="investment__title">Select Your Investment Unit</h5>
+          <h5 class="investment__title">Select Your<br />Investment Unit</h5>
           <div class="investment__image-wrapper">
             <img class="investment__image" src="@/assets/images/investment.png" alt="">
           </div>
@@ -211,8 +211,9 @@ import UiButton from '../ui/uiButton.vue';
 
   &__filters-label {
     max-width: 64%;
-    font-family: 'Vollkorn';
-    font-size: vw(24);
+    font-family: 'Agatho';
+    font-weight: 500;
+    font-size: vw(26);
     line-height: vw(30);
     letter-spacing: 0px;
     text-transform: uppercase;
@@ -222,7 +223,8 @@ import UiButton from '../ui/uiButton.vue';
   }
 
   &__filters-subtitle {
-    font-family: 'Wix Madefor Display';
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
     font-size: vw(17);
     line-height: vw(22);
     letter-spacing: 0px;
@@ -238,7 +240,8 @@ import UiButton from '../ui/uiButton.vue';
   }
 
   &__button {
-    font-family: 'Wix Madefor Display';
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
     font-size: vw(14);
     line-height: vw(15);
     letter-spacing: 0%;
@@ -313,6 +316,12 @@ import UiButton from '../ui/uiButton.vue';
 
   &__roi {
     background-color: $yellow-middle;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
+    font-size: vw(12);
+    line-height: vw(15);
+    letter-spacing: 0%;
+    text-align: center;
   }
 
   &__price {

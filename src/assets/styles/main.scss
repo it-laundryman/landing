@@ -7,3 +7,40 @@ body {
 img {
   max-width: 100%;
 }
+
+.el-select__popper {
+  &.el-popper {
+    border: vw(1) solid rgb($yellow, 0.26) !important;
+    background: #012210 !important;
+    box-shadow: var(--el-box-shadow-light) !important;
+    border-radius: vw(12);
+  }
+  
+  .el-popper__arrow {
+    display: none;
+  }
+  .el-select-dropdown__list {
+    padding: vw(20) 0;
+  }
+  .el-select-dropdown__item {
+    padding: 0 vw(30);
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 300;
+    font-size: vw(14);
+    line-height: vw(22);
+    letter-spacing: 0px;
+    color: $white;
+    height: auto;
+    margin-bottom: vw(5);
+    transition: all .3s ease-in-out;
+  }
+  .el-select-dropdown__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .el-select-dropdown__item.is-selected,.el-select-dropdown__item.is-hovering {
+    color: $yellow-light;
+    font-weight: 400;
+    background-color: transparent;
+  }
+}

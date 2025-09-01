@@ -6,8 +6,9 @@
         <span class="analysis__subheading">Location</span>
       </div>
       <p class="analysis__description">
-        Comprehensive location intelligence for informed investment decisions.
-        Analyze local infrastructure and regional connectivity.
+        Verdana is ideally located in the heart of Sanur. It offers swift access to the amenities and lifestyle features
+        most valued by both residents and renters.
+
       </p>
     </div>
 
@@ -16,27 +17,27 @@
         <div class="analysis__tile-item">
           <span class="analysis__time">5 min</span>
           <p class="analysis__place">Bali International School</p>
-          <p class="analysis__benefit">Premium education drives family rental demand</p>
+          <p class="analysis__benefit">Drives family rentals and long-term value</p>
         </div>
         <div class="analysis__tile-item">
           <span class="analysis__time">7 min</span>
           <p class="analysis__place">International Hospital</p>
-          <p class="analysis__benefit">World-class healthcare supports premium positioning</p>
+          <p class="analysis__benefit">attraction point for medical tourism</p>
         </div>
         <div class="analysis__tile-item">
           <span class="analysis__time">10 min</span>
           <p class="analysis__place">ICON<br />BALI Mall</p>
-          <p class="analysis__benefit">New retail hub increases area desirability</p>
+          <p class="analysis__benefit">Upscale retail adds lifestyle value and convenience</p>
         </div>
         <div class="analysis__tile-item">
           <span class="analysis__time">4 min</span>
           <p class="analysis__place">Sanur Beach</p>
-          <p class="analysis__benefit">Safe family beach drives tourist rental demand</p>
+          <p class="analysis__benefit">Safe, family-friendly, and always in demand</p>
         </div>
         <div class="analysis__tile-item">
           <span class="analysis__time">2 min</span>
           <p class="analysis__place">Local Markets & Dining</p>
-          <p class="analysis__benefit">Authentic experiences enhance rental appeal</p>
+          <p class="analysis__benefit">Authentic Bali vibes that guests love</p>
         </div>
       </div>
       <div class="analysis__map">
@@ -64,7 +65,7 @@
 
   &__header {
     display: grid;
-    grid-template-columns: 1fr 22%;
+    grid-template-columns: 1fr 29%;
     justify-content: space-between;
     margin-bottom: vw(60);
   }

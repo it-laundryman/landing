@@ -110,8 +110,8 @@ import UiButton from '../ui/uiButton.vue';
 const val = ref(1)
 const options = [
   {
-    value: 'Option1',
-    label: 'Option1',
+    value: 'Phase 2 (Mid Construction - 5% Discount)',
+    label: 'Phase 2 (Mid Construction - 5% Discount)',
   },
   {
     value: 'Option2',
@@ -133,6 +133,12 @@ const options = [
 </script>
 
 <style scoped lang="scss">
+:deep(.el-select__popper.el-popper) {
+  border: vw(1) solid rgb($yellow, 0.26);
+  background: #012210;
+  box-shadow: var(--el-box-shadow-light);
+}
+
 .calculator {
   padding: vw(65) vw(43) vw(90);
 
