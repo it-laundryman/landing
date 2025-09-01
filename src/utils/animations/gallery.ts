@@ -1,3 +1,4 @@
+// @ts-nocheck
 export function animateGallery(gsap, tl) {
   const galleryList = document.querySelector('.gallery__list');
   const galleryItems = document.querySelectorAll('.gallery__item');

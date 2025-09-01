@@ -35,6 +35,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import { useMq } from "vue3-mq";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";

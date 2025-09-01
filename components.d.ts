@@ -11,7 +11,6 @@ declare module 'vue' {
     AnalysisSection: typeof import('./src/components/sections/AnalysisSection.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     CalculatorSection: typeof import('./src/components/sections/CalculatorSection.vue')['default']
-    copy: typeof import('./src/components/icons/iconUnlock copy.vue')['default']
     DecorSection: typeof import('./src/components/sections/DecorSection.vue')['default']
     DeliversSection: typeof import('./src/components/sections/DeliversSection.vue')['default']
     DocumentationSection: typeof import('./src/components/sections/DocumentationSection.vue')['default']

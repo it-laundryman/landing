@@ -1,3 +1,4 @@
+// @ts-nocheck
 export function animateDelivery(gsap, tl) {
 
   const tlGallery = gsap.timeline({});

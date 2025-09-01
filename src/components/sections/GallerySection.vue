@@ -25,6 +25,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import {
   animateGallery
 

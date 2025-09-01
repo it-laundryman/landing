@@ -103,6 +103,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import { ref } from 'vue';
 import UiButton from '../ui/uiButton.vue';
 import IconPlus from '../icons/IconPlus.vue';

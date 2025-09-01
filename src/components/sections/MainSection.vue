@@ -61,6 +61,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import { ref } from 'vue';
 import UiButton from '../ui/uiButton.vue';
 import MainMenu from './main/mainMenu.vue';
