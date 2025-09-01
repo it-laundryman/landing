@@ -103,10 +103,10 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
+
 import { ref } from 'vue';
-import UiButton from '../ui/uiButton.vue';
 import IconPlus from '../icons/IconPlus.vue';
+import UiButton from '../ui/uiButton.vue';
 const val = ref(1)
 const options = [
   {

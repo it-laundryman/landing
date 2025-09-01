@@ -1,8 +1,20 @@
-// @ts-nocheck
-export function animateGallery(gsap, tl) {
+
+export function animateGallery(gsap: GSAP): GSAPTimeline | null {
   const galleryList = document.querySelector('.gallery__list');
-  const galleryItems = document.querySelectorAll('.gallery__item');
+
+  // Check if galleryList exists
+  if (!galleryList) {
+    console.error('Gallery list element not found');
+    return null;
+  }
+
   const container = galleryList.parentElement;
+
+  // Check if container exists
+  if (!container) {
+    console.error('Container element not found');
+    return null;
+  }
 
   // Рассчитываем процент смещения
   const totalContentWidth = galleryList.scrollWidth;
