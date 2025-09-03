@@ -32,6 +32,9 @@
       768: {
         slidesPerView: 3,
       },
+      320: {
+        slidesPerView: 1.2,
+      },
     }" @swiperprogress="onProgress" @swiperslidechange="onSlideChange" :navigation="{
       nextEl: '.documentation__list-button--right',
       prevEl: '.documentation__list-button--left',
@@ -145,11 +148,21 @@ onMounted(() => {
   padding: vw(45) vw(43) vw(40) vw(43);
   background-color: $gray-light;
 
+  @include mobile {
+    overflow: hidden;
+    padding: vmin(33) vmin(10) vmin(20) vmin(10);
+  }
+
   &__header {
     display: grid;
     grid-template-columns: 1fr 30%;
     justify-content: space-between;
     margin-bottom: vw(40);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-bottom: vmin(20);
+    }
   }
 
   &__title-block {
@@ -169,21 +182,35 @@ onMounted(() => {
     line-height: vw(56);
     letter-spacing: 0px;
     text-transform: uppercase;
+
+    @include mobile {
+      font-size: vmin(35);
+      line-height: vmin(35);
+    }
   }
 
   &__description {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(16);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $black-light;
+
+    @include mobile {
+      margin-top: vmin(15);
+      font-size: vmin(12);
+    }
   }
 
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: vw(10);
+
+    @include mobile {
+      gap: vmin(8);
+    }
   }
 
   &__item {
@@ -192,14 +219,32 @@ onMounted(() => {
     padding: vw(35) vw(30);
     border-radius: vw(15);
     border: vw(1) solid rgb($yellow, 0.6);
+    aspect-ratio: 1;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      padding: vmin(28) vmin(22);
+      border-radius: vmin(10);
+      border: vmin(1) solid rgb($yellow, 0.6);
+    }
   }
 
   &__item-icon {
     width: vw(50);
     margin-bottom: vw(45);
 
+    @include mobile {
+      margin-bottom: vmin(30);
+      width: vmin(30);
+    }
+
     &--unlock {
       width: vw(35);
+
+      @include mobile {
+        width: vmin(20);
+      }
     }
   }
 
@@ -212,12 +257,20 @@ onMounted(() => {
     text-transform: uppercase;
     color: $yellow-middle;
     width: min-content;
+
+    @include mobile {
+      font-size: vmin(16);
+    }
   }
 
   &__item-list {
     margin-top: vw(20);
     list-style-type: none;
     padding-left: 0;
+
+    @include mobile {
+      margin-top: vmin(20);
+    }
 
     &_item {
       font-family: 'Plus Jakarta Sans';
@@ -227,6 +280,11 @@ onMounted(() => {
       letter-spacing: 0px;
       color: $black-light;
 
+      @include mobile {
+        font-size: vmin(10);
+        line-height: vmin(14);
+      }
+
       &::before {
         content: "";
         margin-right: vw(8);
@@ -234,6 +292,12 @@ onMounted(() => {
         width: vw(7);
         height: vw(7);
         background-color: rgb($yellow-middle, 0.6);
+
+        @include mobile {
+          margin-right: vmin(7);
+          width: vmin(4);
+          height: vmin(4);
+        }
       }
     }
   }
@@ -242,6 +306,11 @@ onMounted(() => {
     display: flex;
     gap: vw(10);
     margin-top: vw(20);
+
+    @include mobile {
+      margin-top: vmin(13);
+      gap: vmin(5);
+    }
   }
 
   &__list-button {
@@ -255,8 +324,19 @@ onMounted(() => {
     border: vw(1) solid rgb($yellow-light, 0.6);
     transition: all .3s ease-in-out;
 
+    @include mobile {
+      width: vmin(28);
+      height: vmin(28);
+      border-radius: vmin(5);
+      border: vmin(1) solid rgb($yellow-light, 0.6);
+    }
+
     svg {
       width: vw(10);
+
+      @include mobile {
+        width: vmin(5);
+      }
     }
 
     &:hover {

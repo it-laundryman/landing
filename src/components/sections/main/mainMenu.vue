@@ -71,6 +71,7 @@ const closeMenu = () => {
 const scrollToSection = (id: string) => {
   const el = document.getElementById(id);
   if (el) {
+    emit('close')
     el.scrollIntoView({ behavior: "smooth" });
   }
 }
@@ -131,6 +132,12 @@ defineExpose({ menuElement })
   visibility: hidden;
   transform: translateX(-100vw);
 
+  @include mobile {
+    position: fixed;
+    padding-bottom: 100svh;
+    max-width: 100%;
+  }
+
   &__wrapper {
     left: 0;
     right: 0;
@@ -149,6 +156,10 @@ defineExpose({ menuElement })
     // left: vw(50);
     // right: vw(55);
     // padding-bottom: calc(100svh - 12%);
+
+    @include mobile {
+      padding: vw(30) vw(30);
+    }
   }
 
   &.opened {
@@ -162,6 +173,10 @@ defineExpose({ menuElement })
     bottom: -10vw;
     left: 0;
     width: 100%;
+
+    @include mobile {
+      bottom: -23%;
+    }
   }
 
   &__background-image {
@@ -184,10 +199,23 @@ defineExpose({ menuElement })
 
     border: vw(0.56) solid $yellow-middle;
 
+    @include mobile {
+      right: vmin(20);
+      top: vmin(30);
+      width: vmin(25);
+      height: vmin(25);
+      border: vmin(0.56) solid $yellow-middle;
+    }
+
     img {
       margin-top: vw(3);
       width: 80%;
       aspect-ratio: 1;
+
+      @include mobile {
+        margin-top: vmin(2);
+        width: 80%;
+      }
     }
   }
 
@@ -204,6 +232,12 @@ defineExpose({ menuElement })
     width: vw(105);
     height: vw(115);
     margin-bottom: vw(30);
+
+    @include mobile {
+      width: vmin(80);
+      height: vmin(90);
+      margin-bottom: vmin(30);
+    }
   }
 
   &__logo-img {
@@ -219,6 +253,11 @@ defineExpose({ menuElement })
     display: flex;
     flex-direction: column;
     gap: vw(20);
+
+    @include mobile {
+      margin-bottom: vmin(30);
+      gap: vmin(20);
+    }
   }
 
   &__item {}
@@ -234,6 +273,11 @@ defineExpose({ menuElement })
     color: $white;
     transition: all .3s ease-in-out;
 
+    @include mobile {
+      font-size: vmin(16);
+      line-height: vmin(24);
+    }
+
     &.active,
     &:hover {
       color: $yellow-middle;
@@ -245,6 +289,10 @@ defineExpose({ menuElement })
     display: flex;
     flex-direction: column;
     gap: vw(15);
+
+    @include mobile {
+      gap: vmin(10);
+    }
   }
 
   &__phone {
@@ -256,6 +304,10 @@ defineExpose({ menuElement })
     letter-spacing: 0px;
     color: $yellow-middle;
     text-decoration: none;
+
+    @include mobile {
+      font-size: vmin(20);
+    }
   }
 
   &__contact {

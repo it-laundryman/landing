@@ -51,16 +51,29 @@ const classes = computed(() => {
 .base-button--md {
   padding: vw(8) vw(12);
   font-size: vw(12);
+
+  @include mobile {
+    padding: vmin(5) vmin(9);
+  }
 }
 
 .base-button--lg {
   padding: vw(12) vw(28);
   font-size: vw(14);
+
+  @include mobile {
+    padding: vmin(10) vmin(15);
+    font-size: vmin(10);
+  }
 }
 
 /* формы */
 .base-button--rounded {
   border-radius: vw(40);
+
+  @include mobile {
+    border-radius: vmin(50);
+  }
 }
 
 .base-button--circle {
@@ -104,6 +117,8 @@ const classes = computed(() => {
   background: transparent;
   border: vw(1) solid $yellow-dark;
   color: $yellow;
+
+
 }
 
 .base-button--outline-transparent-yellow {

@@ -57,6 +57,11 @@
   display: flex;
   gap: vw(10);
 
+  @include mobile {
+    flex-wrap: wrap;
+    gap: vmin(6);
+  }
+
   &__item {
     flex: 1;
     border: vw(1) solid rgb($yellow, 0.24);
@@ -66,6 +71,13 @@
     flex-direction: column;
     gap: vw(10);
 
+    @include mobile {
+      border: vmin(1) solid rgb($yellow, 0.24);
+      border-radius: vmin(11);
+      flex: 0 1 48.9%;
+      padding: vmin(16);
+      gap: vmin(10);
+    }
   }
 
   // &__count {
@@ -85,6 +97,11 @@
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $yellow;
+
+    @include mobile {
+      font-weight: 400;
+      font-size: vmin(30);
+    }
   }
 
   &__percent {
@@ -95,15 +112,24 @@
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $yellow;
+
+    @include mobile {
+      font-weight: 400;
+      font-size: vmin(30);
+    }
   }
 
   &__description {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(12);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: rgb($white, 0.77);
+
+    @include mobile {
+      font-size: vmin(10);
+    }
   }
 }
 
@@ -111,12 +137,22 @@
 
   padding: 0 vw(45) vw(65);
 
+  @include mobile {
+    padding: 0 vmin(10) vmin(40);
+    margin-top: calc(100vw - 100.25vmin);
+    padding-top: calc(100vw - 50.25vmin);
+  }
+
   &__content {
     margin-top: vw(130);
     align-items: flex-start;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: vw(42);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__title {
@@ -124,6 +160,10 @@
     width: min-content;
     grid-row: 1 / 3;
     grid-column: 1;
+
+    @include mobile {
+      grid-row: 1;
+    }
   }
 
   &__heading {
@@ -134,6 +174,11 @@
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(38);
+      line-height: vmin(39);
+    }
   }
 
   &__subheading {
@@ -147,6 +192,13 @@
     margin-left: auto;
     margin-right: vw(-19);
     margin-top: vw(-29);
+
+    @include mobile {
+      font-size: vmin(32);
+      line-height: vmin(52);
+      margin-top: vmin(-31);
+      margin-right: vmin(-56);
+    }
   }
 
   &__image {
@@ -157,6 +209,12 @@
     display: inline-block;
     border-radius: vw(200) vw(200) vw(12) vw(12);
     overflow: hidden;
+
+    @include mobile {
+      grid-row: 3;
+      grid-column: 1;
+      border-radius: vmin(160) vmin(160) vw(9) vw(9);
+    }
   }
 
   &__img {
@@ -170,6 +228,12 @@
     grid-row: 1 / 3;
     display: flex;
     flex-direction: column;
+
+    @include mobile {
+      margin-top: vmin(30);
+      grid-row: 4;
+      grid-column: 1;
+    }
   }
 
   &__symbol {
@@ -180,6 +244,12 @@
     letter-spacing: 0px;
     color: $yellow-light;
     margin-bottom: vw(-25);
+
+    @include mobile {
+      font-size: vmin(90);
+      line-height: vmin(52);
+      margin-bottom: vmin(-25);
+    }
   }
 
   &__text {
@@ -190,6 +260,11 @@
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(12);
+      line-height: vmin(17);
+    }
   }
 
   &__about {
@@ -203,6 +278,19 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: vw(42);
+
+    @include mobile {
+      grid-row: 2;
+      grid-column: 1;
+      display: block;
+
+      padding-top: vmin(20);
+      padding-bottom: vmin(20);
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &__about-text {
@@ -211,6 +299,11 @@
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(12);
+      line-height: vmin(17);
+    }
   }
 }
 </style>

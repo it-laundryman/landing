@@ -23,7 +23,6 @@ const rows = ref<string[][]>([])
 let currentTimeline: gsap.core.Timeline | null = null;
 let scrollTriggers: ScrollTrigger[] = [];
 
-
 // Функция для очистки всех анимаций
 const cleanupAnimations = () => {
   if (currentTimeline) {

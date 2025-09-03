@@ -51,7 +51,6 @@ export function animateGallery(gsap: GSAP): GSAPTimeline | null {
   //     // duration: 24,
   //   }
   // );
-
   gsap.fromTo(
     ".gallery__list",
     {

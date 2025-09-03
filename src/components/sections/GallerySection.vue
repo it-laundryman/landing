@@ -1,6 +1,9 @@
 <template>
   <section class="gallery">
     <div class="gallery__container">
+      <!-- <div class="gallery__background">
+        <img class="gallery__background-image" src="@/assets/images/bg-investment.svg" alt="">
+      </div> -->
       <div class="gallery__list-container">
         <h5 class="gallery__title">True luxury</h5>
         <div class="gallery__list">
@@ -26,68 +29,44 @@
 
 <script setup lang="ts">
 import UiButton from '../ui/uiButton.vue';
-// onMounted(async () => {
-//   await nextTick();
-//   console.log(breakpointsMq);
-//   if (breakpointsMq.desktop_xl) {
 
-//   }
-//   watch(
-//     breakpointsMq.desktop_xl,
-//     () => {
-//       if (breakpointsMq.desktop_xl) {
-//         nextTick(() => {
-//           const tl = gsap.timeline({
-//             scrollTrigger: {
-//               trigger: ".main",
-//               start: "top top",
-//               end: `+=18000`,
-//               scrub: 1,
-//               pin: true,
-//             },
-//           });
-//           tl.add(animateGallery(gsap, tl));
-//           // tl.add(animateDrawing($gsap, tl));
-//           // tl.add(animateModeling($gsap, tl));
-//           // tl.add(animateRender($gsap, tl));
-//           // tl.add(animateFinally($gsap, tl));
-//           // tl.add(animateAngle($gsap, tl));
-//         });
-//       } else {
-//         nextTick(() => {
-//           const tl = gsap.timeline({
-//             scrollTrigger: {
-//               trigger: ".main",
-//               start: "top top",
-//               end: `+=18000`,
-//               scrub: 1,
-//               pin: true,
-//             },
-//           });
-//           // const tl = gsap.timeline({});
-//           tl.add(animateGallery(gsap, tl));
-//           // tl.add(animateHeaderMobile($gsap, tl));
-//           // tl.add(animateDrawingMobile($gsap, tl));
-//           // tl.add(animateRenderMobile($gsap, tl));
-//           // tl.add(animateModelingMobile($gsap, tl));
-//           // tl.add(animateFinallyMobile($gsap, tl));
-//           // tl.add(animateAngleMobile($gsap, tl));
-//         });
-//       }
-//     },
-//     { immediate: true }
-//   );
-// })
 </script>
 
 <style scoped lang="scss">
 .gallery {
   padding-top: vw(60);
+  // padding-bottom: vw(110);
+  // overflow: hidden;
+
+  @include mobile {
+    padding-top: vmin(30);
+    // padding-bottom: vmin(70);
+  }
 
   &__container {
     position: relative;
     z-index: 1;
   }
+
+  // &__background {
+  //   position: absolute;
+  //   bottom: -107.5%;
+  //   top: auto;
+  //   left: 0;
+  //   width: 100%;
+
+  //   @include mobile {
+  //     bottom: -73%;
+  //     left: -15%;
+  //     right: -15%;
+  //     width: auto;
+  //   }
+
+  //   img {
+  //     width: 100%;
+  //     object-fit: cover;
+  //   }
+  // }
 
   &__title {
     position: absolute;
@@ -103,6 +82,11 @@ import UiButton from '../ui/uiButton.vue';
     letter-spacing: 0px;
     text-align: center;
     color: $yellow;
+
+    @include mobile {
+      font-size: vmin(40);
+      line-height: vw(27);
+    }
   }
 
   &__list-container {
@@ -132,6 +116,11 @@ import UiButton from '../ui/uiButton.vue';
     height: initial;
     aspect-ratio: 619 / 550;
     border-radius: vw(15);
+
+    @include mobile {
+      width: vmin(260);
+      aspect-ratio: 260 / 290;
+    }
   }
 
   &__button {
@@ -144,6 +133,12 @@ import UiButton from '../ui/uiButton.vue';
     border: vw(2) solid $yellow-light;
     // position: absolute;
     // left: 50%;
+
+    @include mobile {
+      height: vmin(100);
+      bottom: -12.5%;
+      transform: translateX(-50%) translateY(12.5%);
+    }
   }
 
   &__button-text {
@@ -157,6 +152,11 @@ import UiButton from '../ui/uiButton.vue';
     text-transform: uppercase;
     width: min-content;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(11);
+      line-height: vmin(10);
+    }
   }
 }
 </style>

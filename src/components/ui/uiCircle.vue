@@ -69,6 +69,12 @@ watch(() => props.position, () => {
   background: #b1975d;
   border-radius: 50%;
   transform: translateX(-50%) translateY(vw(-10));
+
+  @include mobile {
+    width: vmin(20);
+    height: vmin(20);
+    transform: translateX(-50%) translateY(vmin(-10));
+  }
 }
 
 // @keyframes spin {

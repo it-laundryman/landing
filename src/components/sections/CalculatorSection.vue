@@ -11,52 +11,60 @@
           Calculate your detailed returns including taxes, management fees, and seasonal
           variations. Real-time analysis based on current market conditions.
         </p>
-        <div class="calculator__field">
-          <span class="calculator__label">Construction Phase</span>
-          <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-          </el-select>
+        <div class="calculator__filter">
+          <UiButton class="calculator__button-flt" variant="outline-yellow" shape="rounded" size="md">filter Analysis
+            Results
+          </UiButton>
         </div>
-        <div class="calculator__field">
-          <span class="calculator__label">Villa Unit Selection</span>
-          <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-          </el-select>
-        </div>
-        <div class="calculator__field">
-          <span class="calculator__label">Choose Type of Finish</span>
-          <div class="calculator__field__buttons">
-            <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">premium
-            </UiButton>
-            <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">balanced
-            </UiButton>
+        <div class="calculator__fields">
+          <div class="calculator__field">
+            <span class="calculator__label">Construction Phase</span>
+            <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
           </div>
+          <div class="calculator__field">
+            <span class="calculator__label">Villa Unit Selection</span>
+            <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
+          </div>
+          <div class="calculator__field">
+            <span class="calculator__label">Choose Type of Finish</span>
+            <div class="calculator__field__buttons">
+              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">premium
+              </UiButton>
+              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">balanced
+              </UiButton>
+            </div>
 
-        </div>
-        <div class="calculator__field">
-          <span class="calculator__label">Rental Strategy</span>
-          <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-          </el-select>
-        </div>
-        <div class="calculator__field">
-          <span class="calculator__label">ADR Scenario</span>
-          <div class="calculator__field__buttons">
-            <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">Optimistic
-            </UiButton>
-            <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">Base
-            </UiButton>
+          </div>
+          <div class="calculator__field">
+            <span class="calculator__label">Rental Strategy</span>
+            <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
+          </div>
+          <div class="calculator__field">
+            <span class="calculator__label">ADR Scenario</span>
+            <div class="calculator__field__buttons">
+              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">Optimistic
+              </UiButton>
+              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">Base
+              </UiButton>
+            </div>
+          </div>
+          <div class="calculator__field">
+            <span class="calculator__label">Display Currency</span>
+            <el-radio-group class="calculator__radio" v-model="val">
+              <!-- works when >=2.6.0, recommended ✔️ not work when <2.6.0 ❌ -->
+              <el-radio value="Value 1">Indonesian Rupiah (IDR)</el-radio>
+              <!-- works when <2.6.0, deprecated act as value when >=3.0.0 -->
+              <el-radio label="Label 2 & Value 2">US Dollar (USD)</el-radio>
+            </el-radio-group>
           </div>
         </div>
-        <div class="calculator__field">
-          <span class="calculator__label">Display Currency</span>
-          <el-radio-group class="calculator__radio" v-model="val">
-            <!-- works when >=2.6.0, recommended ✔️ not work when <2.6.0 ❌ -->
-            <el-radio value="Value 1">Indonesian Rupiah (IDR)</el-radio>
-            <!-- works when <2.6.0, deprecated act as value when >=3.0.0 -->
-            <el-radio label="Label 2 & Value 2">US Dollar (USD)</el-radio>
-          </el-radio-group>
-        </div>
+
       </div>
 
       <div class="calculator__results">
@@ -142,10 +150,19 @@ const options = [
 .calculator {
   padding: vw(65) vw(43) vw(90);
 
+  @include mobile {
+    padding: vmin(40) vmin(10);
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
     margin-bottom: vw(50);
+
+    @include mobile {
+      flex-direction: column;
+      margin-bottom: vmin(20);
+    }
   }
 
   &__title {
@@ -156,6 +173,11 @@ const options = [
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(38);
+      line-height: vmin(36);
+    }
   }
 
   &__subtitle {
@@ -166,11 +188,52 @@ const options = [
     letter-spacing: 0px;
     text-align: right;
     color: $yellow;
+
+    @include mobile {
+      font-size: vmin(32);
+      line-height: vmin(42);
+      margin-top: vmin(-20);
+      margin-right: vmin(17);
+    }
   }
 
   &__content {
     display: grid;
     grid-template-columns: 0.7fr 1fr;
+
+    @include mobile {
+      display: contents;
+    }
+
+  }
+
+  &__button-flt {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      font-family: 'Plus Jakarta Sans';
+      font-weight: 400;
+      font-size: vmin(9);
+      line-height: vmin(9);
+      letter-spacing: 0%;
+      text-align: center;
+      text-transform: uppercase;
+      color: $white;
+      padding: vmin(5) vmin(20);
+      margin-bottom: vmin(20);
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: vw(25);
+
+    @include mobile {
+      display: none;
+      // TODO: add modal
+    }
   }
 
   &__intro {
@@ -178,6 +241,11 @@ const options = [
     display: flex;
     flex-direction: column;
     gap: vw(25);
+
+    @include mobile {
+      gap: vmin(15);
+      padding-right: 0;
+    }
   }
 
   &__description {
@@ -189,6 +257,11 @@ const options = [
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(12);
+      line-height: vmin(14);
+    }
   }
 
   &__field {
@@ -320,6 +393,13 @@ const options = [
     border-radius: vw(15);
     display: grid;
     gap: vw(10);
+
+    @include mobile {
+      padding: vmin(5);
+      border-radius: vmin(9);
+      display: grid;
+      gap: vmin(5);
+    }
   }
 
   &__results-item {
@@ -329,9 +409,24 @@ const options = [
     display: flex;
     gap: vw(70);
     justify-content: space-between;
+
+    @include mobile {
+      padding: vmin(13) vmin(10);
+      border-radius: vmin(7);
+      display: flex;
+      gap: vmin(10);
+    }
+
+    &:first-child {
+      @include mobile {
+        flex-direction: column;
+      }
+    }
   }
 
-  &__chart {}
+  &__chart {
+    @include mobile {}
+  }
 
   &__chart-label {
     font-family: 'Agatho';
@@ -343,9 +438,18 @@ const options = [
     text-transform: uppercase;
     color: $yellow;
     flex: 0 1 50%;
+
+    @include mobile {
+      display: inline-block;
+      flex: 1;
+      max-width: 55%;
+      font-size: vmin(16);
+      line-height: vmin(16);
+    }
   }
 
   &__chart-desc {
+    text-wrap: balance;
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(16);
@@ -353,6 +457,12 @@ const options = [
     letter-spacing: 0px;
     color: $white;
     flex: 0 1 50%;
+
+    @include mobile {
+      font-size: vmin(10);
+      line-height: vmin(14);
+      flex: 1;
+    }
   }
 
   &__result {}
@@ -364,6 +474,11 @@ const options = [
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(10);
+      line-height: vmin(14);
+    }
   }
 
   &__result-value {
@@ -375,16 +490,29 @@ const options = [
     text-align: right;
     text-transform: uppercase;
     color: $yellow;
+
+    @include mobile {
+      font-size: vmin(16);
+    }
   }
 
   &__note {
-    margin-top: vw(20);
+    margin-top: vw(15);
     margin-bottom: vw(20);
     padding-left: vw(30);
     display: grid;
     grid-template-columns: 1fr auto;
     gap: vw(28);
     align-items: start;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-top: vmin(15);
+      margin-bottom: vmin(5);
+      padding-left: vmin(10);
+      padding-right: vmin(10);
+      gap: vmin(20);
+    }
   }
 
   &__note-text {
@@ -395,6 +523,11 @@ const options = [
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(10);
+      line-height: vmin(14);
+    }
   }
 
   &__button {
@@ -410,6 +543,15 @@ const options = [
     text-align: center;
     text-transform: uppercase;
     color: $black;
+
+    @include mobile {
+      width: calc(100% + vmin(20));
+      padding-top: vmin(10);
+      padding-bottom: vmin(10);
+      font-size: vmin(9);
+      line-height: vmin(9);
+      margin-left: vmin(-10);
+    }
   }
 }
 </style>

@@ -16,7 +16,78 @@
           </p>
         </div>
       </div>
-      <div class="delivery__tile">
+      <div class="slider">
+
+        <swiper-container :slides-per-view="4" class="slider__wrapper" :breakpoints="{
+          0: { slidesPerView: 1.2, enabled: true },
+          768: { slidesPerView: 4, enabled: false }
+        }">
+          <swiper-slide>
+            <div class="delivery__item">
+              <UiCircle>
+                <template #content>
+                  <div class="delivery__item-content">
+                    <span class="delivery__item-title">Professional Rental Management</span>
+                    <p class="delivery__item-text">
+                      Our in-house team handles guest bookings, property care, and marketing. We ensure stable,
+                      optimized
+                      returns with zero operational burden.
+                    </p>
+                  </div>
+                </template>
+              </UiCircle>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="delivery__item">
+              <UiCircle>
+                <template #content>
+                  <div class="delivery__item-content">
+                    <span class="delivery__item-title">Established Location Advantages</span>
+                    <p class="delivery__item-text">
+                      Sanur delivers consistent, predictable returns, supported by steady tourist demand and major
+                      ongoing
+                      infrastructure investments.
+                    </p>
+                  </div>
+                </template>
+              </UiCircle>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="delivery__item">
+              <UiCircle>
+                <template #content>
+                  <div class="delivery__item-content">
+                    <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
+                    <p class="delivery__item-text">
+                      All villas come with full legal documentation, clear titles, and direct purchase from
+                      the developer.
+                    </p>
+                  </div>
+                </template>
+              </UiCircle>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="delivery__item">
+              <UiCircle>
+                <template #content>
+                  <div class="delivery__item-content">
+                    <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
+                    <p class="delivery__item-text">
+                      Institutional-level documentation, government permits, and transparent legal structure. Full due
+                      diligence support provided.
+                    </p>
+                  </div>
+                </template>
+              </UiCircle>
+
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+      <!-- <div class="delivery__tile">
         <div class="delivery__item">
           <UiCircle>
             <template #content>
@@ -70,13 +141,16 @@
           </UiCircle>
 
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import UiCircle from '../ui/uiCircle.vue';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 
 </script>
@@ -86,15 +160,24 @@ import UiCircle from '../ui/uiCircle.vue';
   background-color: $gray-light;
   padding: vw(30) vw(45) vw(45) vw(45);
 
+  @include mobile {
+    padding: vmin(30) vmin(10);
+  }
+
   &__container {
     position: relative;
-
   }
 
   &__header {
     padding: vw(50) 0;
     display: flex;
     gap: vw(10);
+
+    @include mobile {
+      flex-direction: column;
+      padding-top: 0;
+      padding-bottom: vmin(30);
+    }
   }
 
   &__title-container {
@@ -105,6 +188,10 @@ import UiCircle from '../ui/uiCircle.vue';
     display: grid;
     align-items: flex-end;
     width: 76%;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__heading {
@@ -118,6 +205,10 @@ import UiCircle from '../ui/uiCircle.vue';
     grid-row: 1;
     grid-column: 1;
 
+    @include mobile {
+      font-size: vmin(38);
+      line-height: vmin(39);
+    }
   }
 
   &__subheading {
@@ -136,6 +227,13 @@ import UiCircle from '../ui/uiCircle.vue';
     bottom: vw(-20);
     right: vw(50);
 
+    @include mobile {
+      font-size: vmin(32);
+      line-height: vmin(35);
+      bottom: vmin(-12);
+      right: vmin(42);
+    }
+
     span:first-child {
       text-transform: capitalize;
     }
@@ -143,15 +241,38 @@ import UiCircle from '../ui/uiCircle.vue';
 
   &__intro {
     flex: 0 1 30%;
+
+    @include mobile {
+      flex: 0 1 100%;
+    }
   }
 
   &__intro-text {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(16);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $black-light;
+  }
+
+  .slider {
+    overflow: hidden;
+
+    @include mobile {
+      padding: vmin(10);
+      margin: vmin(-10);
+    }
+  }
+
+  swiper-container::part(container) {
+    padding: vw(10);
+    margin: vw(-10);
+
+    @include mobile {
+      padding: vmin(10);
+      margin: vmin(-10);
+    }
   }
 
   &__tile {
@@ -162,21 +283,36 @@ import UiCircle from '../ui/uiCircle.vue';
     padding-right: vw(10);
     margin: vw(-40);
     overflow: hidden;
+
+    @include mobile {
+      margin: 0 vmin(-10);
+      padding: 0;
+      padding-top: vmin(10);
+      padding-bottom: vmin(10);
+    }
   }
 
   &__item {
     width: 100%;
     aspect-ratio: 1;
     position: relative;
+
+    @include mobile {
+      min-width: vmin(235);
+
+    }
   }
 
   &__item-content {
     display: flex;
     flex-direction: column;
-    padding: vw(45) vw(40);
     padding: vw(60) vw(50) vw(60);
     width: 100%;
     height: 100%;
+
+    @include mobile {
+      padding: vmin(45) vmin(30) vmin(45) vmin(45);
+    }
   }
 
   &__item-title {
@@ -190,15 +326,25 @@ import UiCircle from '../ui/uiCircle.vue';
     color: $yellow;
     display: block;
     margin-bottom: vw(20);
+
+    @include mobile {
+      font-size: vmin(17);
+      line-height: vmin(18);
+      margin-bottom: vmin(20);
+    }
   }
 
   &__item-text {
     font-family: 'Plus Jakarta Sans';
     font-weight: 300;
     font-size: vw(14);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $black-light;
+
+    @include mobile {
+      font-size: vmin(10);
+    }
   }
 }
 </style>

@@ -55,10 +55,20 @@
   border-radius: vw(15) vw(15) 0 0;
   overflow: hidden;
 
+  @include mobile {
+    padding: vmin(16) vmin(10) vmin(35) vmin(10);
+    border-radius: vmin(10) vmin(10) 0 0;
+  }
+
   &__top {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
   }
 
   &__contact {
@@ -66,6 +76,13 @@
     flex-direction: column;
     gap: vw(25);
     max-width: vw(305);
+
+    @include mobile {
+      margin-top: vmin(20);
+      align-items: center;
+      max-width: vmin(230);
+      gap: vmin(20);
+    }
   }
 
   &__link {
@@ -79,6 +96,10 @@
     line-height: 100%;
     letter-spacing: 0px;
     color: $yellow-light;
+
+    @include mobile {
+      font-size: vmin(30);
+    }
   }
 
   &__link--email {
@@ -88,15 +109,27 @@
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(12);
+      line-height: vmin(16);
+    }
   }
 
   &__address {
+    text-wrap: balance;
     font-family: 'Wix Madefor Display';
     font-weight: 400;
     font-size: vw(14);
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      text-align: center;
+      font-size: vmin(12);
+      line-height: vmin(16);
+    }
   }
 
   &__logo {
@@ -106,6 +139,12 @@
     max-width: vw(145);
     max-height: vw(160);
     justify-self: center;
+
+    @include mobile {
+      grid-row: 1;
+      max-width: vmin(97);
+      max-height: vmin(108);
+    }
   }
 
   &__logo-image {
@@ -117,6 +156,12 @@
     display: flex;
     flex-direction: column;
     justify-self: flex-end;
+
+    @include mobile {
+      display: none;
+      // TODO: нужен ли этот блок?
+      justify-self: center;
+    }
   }
 
   &__slogan-title {
@@ -142,34 +187,60 @@
     margin-top: vw(80);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @include mobile {
+      margin-top: vmin(30);
+      grid-template-columns: 1fr;
+      justify-self: center;
+      gap: vmin(45);
+    }
   }
 
   &__policies {
     display: flex;
     gap: vw(40);
+
+    @include mobile {
+      gap: vmin(40);
+      grid-row: 2;
+    }
   }
 
   &__policy-link {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(18);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0%;
     text-decoration: underline;
     text-decoration-style: solid;
     text-underline-offset: vw(3);
     color: $yellow-light;
+
+    @include mobile {
+      font-size: vmin(13);
+      text-underline-offset: vmin(3);
+    }
   }
 
   &__social {
     justify-self: flex-end;
     display: flex;
     gap: vw(15);
+
+    @include mobile {
+      justify-self: center;
+      gap: vmin(15);
+    }
   }
 
   &__social-link {
     width: vw(25);
     aspect-ratio: 1;
+
+    @include mobile {
+      width: vmin(25);
+    }
   }
 }
 </style>
