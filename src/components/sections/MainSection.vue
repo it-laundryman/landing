@@ -18,7 +18,7 @@
         </div>
       </header>
     </div>
-    <MainMenu :class="{ 'opened': !isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
+    <MainMenu :class="{ 'opened': isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
     <div class="main-info">
       <div class="main-info__content">
         <div class="main-info__title-wrapper">
