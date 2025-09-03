@@ -6,19 +6,16 @@
   @return calc($value / $size) * 100vw;
 }
 
-@function vmin($value, $size: 360) {
+@function vwm($value, $size: 320) {
+  @return calc($value / $size) * 100vw;
+}
+
+@function vmin($value, $size: 320) {
 	@return calc($value / $size) * 100vmin;
 }
 
-
-
-// @mixin md-max {
-// 	@media (max-width: #{$width-md}) {
-// 		@content;
-// 	}
-// }
-// @mixin md-min {
-// 	@media (min-width: #{$width-md}) {
-// 		@content;
-// 	}
-// }
+@mixin mobile {
+  @media screen and (max-width: #{$width-mobile}) {
+    @content;
+  }
+}

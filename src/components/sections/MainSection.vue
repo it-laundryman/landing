@@ -18,7 +18,7 @@
         </div>
       </header>
     </div>
-    <MainMenu :class="{ 'opened': isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
+    <MainMenu :class="{ 'opened': !isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
     <div class="main-info">
       <div class="main-info__content">
         <div class="main-info__title-wrapper">
@@ -62,13 +62,14 @@ const toggleMenu = () => {
 
 <style scoped lang="scss">
 .main-section {
-
-
-  // height: calc(100vw / 2);
-  height: calc(100svh - 200px);
   height: 100svh;
   padding: vw(30) vw(45) 0;
-  // margin-bottom: 25%;
+
+  @include mobile {
+    padding: vmin(20) vmin(10) 0 vmin(10);
+    height: 100svh;
+    position: relative;
+  }
 
 
 
@@ -77,13 +78,16 @@ const toggleMenu = () => {
     z-index: 2;
     margin: vw(-30) vw(-45) 0;
     padding: vw(30) vw(45) 0;
-    // background-image: url('@/assets/images/background-home.png');
-    // background-repeat: no-repeat;
-    // background-size: cover;
 
     display: flex;
     flex-direction: column;
     height: 98svh;
+
+    @include mobile {
+      margin: vmin(-20) vmin(-10) 0 vmin(-10);
+      padding: vmin(20) vmin(10) 0 vmin(10);
+      height: calc(100svh - 12% - 26vmin);
+    }
   }
 
   &__background {
@@ -95,18 +99,18 @@ const toggleMenu = () => {
     background-image: url('@/assets/images/background-home.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     padding-bottom: calc(100svh - 12%);
+
+    @include mobile {
+      padding-bottom: 90svh;
+    }
   }
 }
 
 
 .header {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // right: 0;
   display: flex;
-  // align-items: center;
   align-items: flex-start;
   justify-content: space-between;
   z-index: 10;
@@ -124,6 +128,12 @@ const toggleMenu = () => {
   align-items: center;
   gap: vw(6);
   cursor: pointer;
+
+  @include mobile {
+    padding: vmin(12) vmin(14);
+    gap: vmin(6);
+    border-radius: vmin(50);
+  }
 }
 
 .header__burger-line {
@@ -132,6 +142,12 @@ const toggleMenu = () => {
   height: vw(1);
   background-color: $yellow;
   border-radius: vw(2);
+
+  @include mobile {
+    width: vmin(24);
+    height: vmin(1);
+    border-radius: vmin(2);
+  }
 }
 
 /* логотип */
@@ -144,6 +160,12 @@ const toggleMenu = () => {
 .header__logo img {
   width: vw(115);
   height: vw(130);
+
+  @include mobile {
+    margin-top: vmin(-7);
+    width: vmin(67);
+    height: vmin(74);
+  }
 }
 
 /* справа */
@@ -152,6 +174,11 @@ const toggleMenu = () => {
   align-items: center;
   gap: vw(20);
   margin-right: vw(-10);
+
+  @include mobile {
+    margin-right: 0;
+    gap: vmin(5);
+  }
 }
 
 .header__lang {
@@ -159,8 +186,12 @@ const toggleMenu = () => {
   font-family: "Plus Jakarta Sans";
   font-weight: 400;
   font-size: vw(20);
-  line-height: 100%;
+  line-height: 130%;
   letter-spacing: 0px;
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .header__btn {
@@ -180,6 +211,13 @@ const toggleMenu = () => {
   text-align: center;
   text-transform: uppercase;
 
+  @include mobile {
+    padding: vmin(10) vmin(10);
+    border-radius: vmin(45);
+    font-size: vmin(8);
+    line-height: vmin(9);
+  }
+
 }
 
 .main-info {
@@ -192,20 +230,22 @@ const toggleMenu = () => {
   right: vw(45);
   display: grid;
   margin-bottom: 0;
-  // padding-left: vw(45);
-  // padding-right: vw(45);
 
-  // width: calc(100% - vw(45));
-  // width: 100%;
-  // padding-right: vw(45);
-
-  //  padding: vw(30) vw(45) 0;
-  // height: ;
+  @include mobile {
+    left: 0;
+    right: 0;
+    position: relative;
+  }
 
   &__content {
     position: relative;
     display: grid;
     grid-template-columns: 55% 45%;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__title-wrapper {
@@ -213,6 +253,11 @@ const toggleMenu = () => {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     padding-bottom: vw(65);
+
+    @include mobile {
+      width: fit-content;
+      padding-bottom: 0;
+    }
   }
 
   &__title {
@@ -226,6 +271,11 @@ const toggleMenu = () => {
     grid-column: 1;
     grid-row: 1;
     align-self: start;
+
+    @include mobile {
+      font-size: vmin(46);
+      line-height: vmin(44);
+    }
   }
 
   &__description {
@@ -243,14 +293,18 @@ const toggleMenu = () => {
     color: $yellow;
     text-transform: initial;
     text-wrap: balance;
+
+    @include mobile {
+      margin-bottom: vmin(-16);
+      margin-right: vmin(13);
+      font-size: vmin(36);
+      line-height: vmin(40);
+    }
   }
 
   &__top {
     grid-column: 2;
     grid-row: 1;
-    // display: grid;
-    // justify-content: center;
-    // justify-items: flex-end;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -260,6 +314,13 @@ const toggleMenu = () => {
     align-items: flex-start;
     width: fit-content;
     justify-self: flex-end;
+
+    @include mobile {
+      gap: vmin(25);
+      margin-top: vmin(30);
+      align-self: flex-start;
+      width: 100%;
+    }
   }
 
   &__text {
@@ -267,91 +328,40 @@ const toggleMenu = () => {
     max-width: vw(370);
     font-family: 'Plus Jakarta Sans';
     font-size: vw(16);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      margin-left: 0;
+      max-width: vmin(210);
+      font-size: vmin(12);
+
+    }
   }
 
   &__actions {
     display: flex;
     align-items: flex-start;
     gap: vw(10);
+
+    @include mobile {
+      gap: vmin(5);
+      width: 100%;
+    }
   }
 
   &__button {
-    font-family: 'Wix Madefor Display';
-    text-transform: uppercase;
-  }
-}
-
-.tile {
-  grid-column: 1/3;
-  grid-row: 3;
-  display: flex;
-  gap: vw(10);
-
-  &__item {
-    flex: 1;
-    border: vw(1) solid rgb($yellow, 0.24);
-    border-radius: vw(15);
-    padding: vw(20) vw(45);
-    display: flex;
-    flex-direction: column;
-    gap: vw(10);
-
-  }
-
-  &__count {
-    font-family: 'Vollkorn';
-    font-weight: 700;
-    font-size: vw(40);
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-transform: uppercase;
-    color: $yellow;
-  }
-
-  &__percent {
-    font-family: 'Agatho';
-    font-weight: 700;
-    font-size: vw(40);
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-transform: uppercase;
-    color: $yellow;
-  }
-
-  &__description {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
-    font-size: vw(12);
-    line-height: 100%;
-    letter-spacing: 0px;
-    color: rgb($white, 0.77);
+    text-transform: uppercase;
+    letter-spacing: 0%;
+
+    @include mobile {
+      font-size: vmin(10);
+      line-height: vmin(11);
+      width: 100%;
+    }
   }
 }
-
-
-// .burger {
-//   padding: vw(16) vw(25);
-//   border: vw(1.5) solid #e6d1b4;
-//   /* цвет обводки */
-//   border-radius: vw(50);
-//   /* скругление под "капсулу" */
-//   display: inline-flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   gap: vw(6);
-//   /* расстояние между линиями */
-//   cursor: pointer;
-// }
-
-// .burger span {
-//   display: block;
-//   width: vw(20);
-//   height: vw(1);
-//   background-color: #e6d1b4;
-//   /* цвет линий */
-//   border-radius: vw(2);
-// }</style>
+</style>

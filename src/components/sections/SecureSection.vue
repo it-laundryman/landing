@@ -12,46 +12,60 @@
           Explore Complete VERDANA Experience </UiButton>
       </div>
     </div>
-    <div class="secure__list">
-      <div class="secure__item">
-        <UiCircle>
-          <template #content>
-            <div class="secure__item-content">
-              <span class="secure__item-title">Schedule<br />Investment Consultation</span>
-              <p class="secure__item-description">Connect with our experienced investment team for a personalized
-                session. We’ll walk you through projected returns, legal frameworks, ownership models, and all
-                supporting documentation.
-              </p>
-            </div>
-          </template>
-        </UiCircle>
-      </div>
-      <div class="secure__item">
-        <UiCircle>
-          <template #content>
-            <div class="secure__item-content">
-              <span class="secure__item-title">Request
-                Financial Model</span>
-              <p class="secure__item-description">Get a clear picture of your investment with easy-to-understand cash
-                flow projections, tax insights, and real-life examples.
-              </p>
-            </div>
-          </template>
-        </UiCircle>
-      </div>
-      <div class="secure__item">
-        <UiCircle>
-          <template #content>
-            <div class="secure__item-content">
-              <span class="secure__item-title">Book<br />Site Visit
-              </span>
-              <p class="secure__item-description">Experience VERDANA firsthand with a guided tour of our show units, a
-                walk through the neighborhood, and a full overview of the investment opportunity.
-              </p>
-            </div>
-          </template>
-        </UiCircle>
-      </div>
+    <div class="slider">
+
+      <swiper-container :slides-per-view="3" class="slider__wrapper" :breakpoints="{
+        0: { slidesPerView: 1.2, enabled: true },
+        768: { slidesPerView: 3, enabled: false }
+      }">
+        <swiper-slide>
+          <div class="secure__item">
+            <UiCircle>
+              <template #content>
+                <div class="secure__item-content">
+                  <span class="secure__item-title">Schedule<br />Investment Consultation</span>
+                  <p class="secure__item-description">Connect with our experienced investment team for a personalized
+                    session. We’ll walk you through projected returns, legal frameworks, ownership models, and all
+                    supporting documentation.
+                  </p>
+                </div>
+              </template>
+            </UiCircle>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="secure__item">
+            <UiCircle>
+              <template #content>
+                <div class="secure__item-content">
+                  <span class="secure__item-title">Request
+                    Financial Model</span>
+                  <p class="secure__item-description">Get a clear picture of your investment with easy-to-understand
+                    cash
+                    flow projections, tax insights, and real-life examples.
+                  </p>
+                </div>
+              </template>
+            </UiCircle>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="secure__item">
+            <UiCircle>
+              <template #content>
+                <div class="secure__item-content">
+                  <span class="secure__item-title">Book<br />Site Visit
+                  </span>
+                  <p class="secure__item-description">Experience VERDANA firsthand with a guided tour of our show units,
+                    a
+                    walk through the neighborhood, and a full overview of the investment opportunity.
+                  </p>
+                </div>
+              </template>
+            </UiCircle>
+          </div>
+        </swiper-slide>
+      </swiper-container>
     </div>
   </section>
 </template>
@@ -59,8 +73,31 @@
 <script setup lang="ts">
 import UiButton from '../ui/uiButton.vue';
 import UiCircle from '../ui/uiCircle.vue';
+import { register } from 'swiper/element/bundle';
 
 
+import { onMounted, ref } from "vue"
+
+register();
+
+// onMounted(() => {
+
+//   const initSwiper = () => {
+//     console.log(window.innerWidth, swiperInstance.value)
+//     if (window.innerWidth < 640 && !swiperInstance.value) {
+//       swiperInstance.value = new Swiper('.secure__list', {
+//         slidesPerView: 1.2,
+//         spaceBetween: 16,
+//       });
+//     } else if (window.innerWidth >= 640 && swiperInstance.value) {
+//       swiperInstance.value.destroy(true, true);
+//       swiperInstance.value = null;
+//     }
+//   };
+
+//   // initSwiper();
+//   // window.addEventListener('resize', initSwiper);
+// });
 </script>
 
 <style scoped lang="scss">
@@ -69,11 +106,23 @@ import UiCircle from '../ui/uiCircle.vue';
   margin-bottom: vw(-45);
   overflow: hidden;
 
+  @include mobile {
+    padding: vmin(30) vmin(10) vmin(45) vmin(10);
+    margin-bottom: 0;
+    display: grid;
+  }
+
   &__header {
     display: grid;
     grid-template-columns: 1fr 29%;
     justify-content: space-between;
     margin-bottom: vw(60);
+
+    @include mobile {
+      display: contents;
+      grid-template-columns: 1fr;
+      margin-bottom: vmin(20);
+    }
   }
 
   &__title-block {
@@ -82,6 +131,10 @@ import UiCircle from '../ui/uiCircle.vue';
     grid-row: 1 / 3;
     grid-column: 1;
     width: 67%;
+
+    @include mobile {
+      width: fit-content;
+    }
   }
 
   &__heading {
@@ -93,6 +146,11 @@ import UiCircle from '../ui/uiCircle.vue';
     line-height: vw(56);
     letter-spacing: 0px;
     text-transform: uppercase;
+
+    @include mobile {
+      font-size: vmin(38);
+      line-height: vmin(39);
+    }
   }
 
   &__subheading {
@@ -107,17 +165,33 @@ import UiCircle from '../ui/uiCircle.vue';
     margin-left: auto;
     margin-right: vw(84);
     margin-top: vw(-40);
+
+    @include mobile {
+      font-size: vmin(32);
+      line-height: vmin(65);
+      margin-right: vmin(-93);
+      margin-top: vmin(-33);
+    }
   }
 
-  &__header-content {}
+  &__header-content {
+    @include mobile {
+      display: contents;
+    }
+  }
 
   &__description {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(16);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(12);
+      margin-bottom: vmin(18);
+    }
   }
 
   &__button {
@@ -132,6 +206,14 @@ import UiCircle from '../ui/uiCircle.vue';
     text-align: center;
     text-transform: uppercase;
     color: $black;
+
+    @include mobile {
+      grid-row: 5;
+      font-size: vmin(12);
+      line-height: vmin(15);
+      padding-top: vmin(15);
+      padding-bottom: vmin(15);
+    }
   }
 
   &__list {
@@ -140,6 +222,31 @@ import UiCircle from '../ui/uiCircle.vue';
     padding: vw(45) vw(105);
     margin: vw(-45);
     overflow: hidden;
+
+    @include mobile {
+      padding: vmin(16) vmin(10);
+      margin: vmin(-10);
+      margin-bottom: vmin(10);
+    }
+  }
+
+  .slider {
+    overflow: hidden;
+
+    @include mobile {
+      padding: vmin(10);
+      margin: vmin(-10);
+    }
+  }
+
+  swiper-container::part(container) {
+    padding: vw(10);
+    margin: vw(-10);
+
+    @include mobile {
+      padding: vmin(10);
+      margin: vmin(-10);
+    }
   }
 
   &__item {
@@ -147,22 +254,19 @@ import UiCircle from '../ui/uiCircle.vue';
     aspect-ratio: 1;
     position: relative;
 
-    &::before {
-      z-index: 0;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: vw(1) solid $yellow;
+    @include mobile {
+      aspect-ratio: 1;
+      min-width: vmin(235);
+      // width: vmin(235) !important;
+      // height: vmin(235) !important;
     }
 
-    &::after {
-      z-index: 0;
-      position: absolute;
-      content: "";
-      width: vw(24);
-      height: vw(24);
+    :deep(.dot) {
+      @include mobile {
+        width: vmin(16);
+        height: vmin(16);
+        transform: translateX(-50%) translateY(vmin(-8));
+      }
     }
   }
 
@@ -172,6 +276,10 @@ import UiCircle from '../ui/uiCircle.vue';
     padding: vw(67) vw(50) vw(65) vw(67);
     display: flex;
     flex-direction: column;
+
+    @include mobile {
+      padding: vmin(43) vmin(33) vmin(43) vmin(45);
+    }
   }
 
   &__item-title {
@@ -186,15 +294,25 @@ import UiCircle from '../ui/uiCircle.vue';
     color: $yellow-light;
     margin-bottom: vw(20);
     display: inline-block;
+
+    @include mobile {
+      font-size: vmin(17);
+      line-height: vmin(18);
+      margin-bottom: vmin(6);
+    }
   }
 
   &__item-description {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(15);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(10);
+    }
   }
 }
 </style>

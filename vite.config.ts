@@ -31,4 +31,7 @@ export default defineConfig({
       }
     }
   },
+  esbuild: {
+    pure: ['console.log'],
+  },
 })

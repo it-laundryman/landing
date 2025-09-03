@@ -67,11 +67,20 @@ import UiButton from '../ui/uiButton.vue';
 .perfomance {
   padding: vw(45) vw(43) vw(40) vw(43);
 
+  @include mobile {
+    padding: vmin(25) vmin(10) vmin(28) vmin(10);
+  }
+
   &__header {
     display: grid;
     grid-template-columns: 1fr 24%;
     justify-content: space-between;
     margin-bottom: vw(60);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-bottom: vmin(15);
+    }
   }
 
   &__title-block {
@@ -80,6 +89,11 @@ import UiButton from '../ui/uiButton.vue';
     grid-row: 1 / 3;
     grid-column: 1;
     width: 67%;
+
+    @include mobile {
+      width: fit-content;
+      margin-bottom: vmin(20);
+    }
   }
 
   &__heading {
@@ -92,6 +106,11 @@ import UiButton from '../ui/uiButton.vue';
     line-height: vw(56);
     letter-spacing: 0px;
     text-transform: uppercase;
+
+    @include mobile {
+      font-size: vmin(38);
+      line-height: vmin(38);
+    }
   }
 
   &__subheading {
@@ -106,15 +125,26 @@ import UiButton from '../ui/uiButton.vue';
     margin-left: auto;
     margin-top: vw(-65);
     margin-right: vw(-55);
+
+    @include mobile {
+      font-size: vmin(32);
+      line-height: vmin(31);
+      margin-top: vmin(-15);
+      margin-right: vmin(24);
+    }
   }
 
   &__description {
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(16);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(12);
+    }
   }
 
   &__list {
@@ -122,6 +152,13 @@ import UiButton from '../ui/uiButton.vue';
     border-radius: vw(15);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    @include mobile {
+      border: none;
+      border-radius: 0;
+      grid-template-columns: 1fr 1fr;
+      gap: vmin(6);
+    }
   }
 
   &__item {
@@ -133,14 +170,30 @@ import UiButton from '../ui/uiButton.vue';
     border-right: vw(1) solid rgb($yellow, 0.26);
     border-bottom: vw(1) solid rgb($yellow, 0.26);
 
+    @include mobile {
+      // display: grid;
+      aspect-ratio: auto;
+      padding: vmin(15) vmin(15);
+      border: vmin(1) solid rgb($yellow, 0.26);
+      border-radius: vmin(15);
+    }
+
     /* Убираем границы у последних элементов в ряду */
     &:nth-child(3n) {
       border-right: none;
+
+      @include mobile {
+        border: vmin(1) solid rgb($yellow, 0.26);
+      }
     }
 
     /* Убираем границы у последнего ряда */
     &:nth-last-child(-n+3) {
       border-bottom: none;
+
+      @include mobile {
+        border: vmin(1) solid rgb($yellow, 0.26);
+      }
     }
   }
 
@@ -153,6 +206,10 @@ import UiButton from '../ui/uiButton.vue';
     text-transform: uppercase;
     color: $yellow-light;
     display: inline-block;
+
+    @include mobile {
+      font-size: vmin(30);
+    }
   }
 
   &__item-percent {
@@ -163,9 +220,14 @@ import UiButton from '../ui/uiButton.vue';
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(14);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      height: 100%;
+      font-size: vmin(10);
+    }
   }
 
   &__item-button {
@@ -182,8 +244,23 @@ import UiButton from '../ui/uiButton.vue';
     line-height: vw(15);
     letter-spacing: 0%;
 
+    @include mobile {
+      justify-content: flex-start;
+      width: auto;
+      margin-top: vmin(15);
+      padding-left: vmin(5);
+      padding-right: vmin(5);
+      gap: vmin(2);
+      font-size: vmin(7);
+      line-height: vmin(7);
+    }
+
     svg {
       width: vw(10);
+
+      @include mobile {
+        width: vmin(5);
+      }
     }
   }
 

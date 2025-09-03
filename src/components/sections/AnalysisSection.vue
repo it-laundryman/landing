@@ -63,11 +63,20 @@
   padding: vw(45) vw(43) vw(40) vw(43);
   background-color: $gray-light;
 
+  @include mobile {
+    padding: vmin(25) vmin(10) vmin(28) vmin(10);
+  }
+
   &__header {
     display: grid;
     grid-template-columns: 1fr 29%;
     justify-content: space-between;
     margin-bottom: vw(60);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-bottom: vmin(20);
+    }
   }
 
   &__title-block {
@@ -75,6 +84,7 @@
     width: fit-content;
     grid-row: 1 / 3;
     grid-column: 1;
+    width: min-content;
   }
 
   &__heading {
@@ -87,6 +97,10 @@
     letter-spacing: 0px;
     text-transform: uppercase;
 
+    @include mobile {
+      font-size: vmin(38);
+      line-height: vmin(39);
+    }
   }
 
   &__subheading {
@@ -101,15 +115,28 @@
     margin-left: auto;
     margin-right: vw(-30);
     margin-top: vw(-32);
+
+    @include mobile {
+      font-size: vmin(32);
+      line-height: vmin(48);
+      margin-right: vmin(-43);
+      margin-top: vmin(-29);
+    }
   }
 
   &__description {
+    text-wrap: balance;
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(16);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $black-light;
+
+    @include mobile {
+      max-width: 80%;
+      font-size: vmin(12);
+    }
   }
 
   &__content {}
@@ -117,6 +144,10 @@
   &__tile {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__tile-item {
@@ -127,6 +158,33 @@
     border-radius: 0 vw(12) vw(12) 0;
     position: relative;
     background-color: $gray-light;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      padding: vmin(14) vmin(17);
+      border-radius: 0 vmin(7) vmin(7) 0;
+      border: vmin(1) solid $yellow-middle;
+      border-top: none;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      @include mobile {
+        border-top: vmin(1) solid $yellow-middle;
+      }
+    }
+
+    // &:not(.analysis__tile-item:nth-child(1)) {
+    //   @include mobile {
+    //     border-top: none;
+    //   }
+    // }
+
+    // &:not(.analysis__tile-item:nth-child(2)) {
+    //   @include mobile {
+    //     border-top: none;
+    //   }
+    // }
   }
 
   &__tile-item:nth-child(1) {
@@ -152,6 +210,27 @@
   &__tile-item:not(:first-child) {
     margin-left: vw(-10);
     padding-left: vw(35);
+
+    @include mobile {
+      margin-left: 0;
+      padding: vmin(14) vmin(17);
+    }
+  }
+
+  &__tile-item:first-child {
+    @include mobile {
+      padding: vmin(14) vmin(17);
+    }
+  }
+
+  &__tile-item:nth-child(2n) {
+    margin-left: vw(-10);
+    padding-left: vw(35);
+
+    @include mobile {
+      margin-left: vmin(-10);
+      padding-left: vmin(28);
+    }
   }
 
   &__time {
@@ -161,7 +240,7 @@
     font-family: 'Wix Madefor Display';
     font-weight: 400;
     font-size: vw(9);
-    line-height: 11px;
+    line-height: vw(11);
     letter-spacing: 0%;
     text-align: center;
     color: $white;
@@ -170,6 +249,13 @@
     border-radius: vw(53);
     display: flex;
     width: fit-content;
+
+    @include mobile {
+      padding: vmin(3) vmin(5);
+      font-size: vmin(5);
+      line-height: vmin(6);
+      border-radius: vmin(33);
+    }
   }
 
   &__place {
@@ -183,6 +269,12 @@
     letter-spacing: 0px;
     text-transform: uppercase;
     margin-bottom: vw(12);
+
+    @include mobile {
+      font-size: vmin(11);
+      line-height: vmin(11);
+      margin-bottom: vmin(8);
+    }
   }
 
   &__benefit {
@@ -190,13 +282,21 @@
     font-weight: 400;
     font-style: Regular;
     font-size: vw(14);
-    line-height: 100%;
+    line-height: 130%;
     letter-spacing: 0px;
     color: $black-light;
+
+    @include mobile {
+      font-size: vmin(8);
+    }
   }
 
   &__map {
     position: relative;
+
+    @include mobile {
+      margin-top: vmin(16);
+    }
 
     &_stickers {
       position: absolute;
@@ -253,11 +353,19 @@
       width: 100%;
       aspect-ratio: 16 / 5;
 
+      @include mobile {
+        aspect-ratio: 1;
+      }
+
       img {
         border-radius: 0 0 vw(15) vw(15);
         width: 100%;
         height: 100%;
         object-fit: cover;
+
+        @include mobile {
+          border-radius: vmin(10);
+        }
       }
     }
   }

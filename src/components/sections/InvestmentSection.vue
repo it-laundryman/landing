@@ -93,11 +93,24 @@ import UiButton from '../ui/uiButton.vue';
   padding-top: vw(110);
   margin-top: vw(60);
 
+  @include mobile {
+    overflow: hidden;
+    margin-top: vmin(15);
+    padding-top: vmin(52);
+    // margin-top: vmin(60);
+  }
+
   &__background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+
+    @include mobile {
+      left: -15%;
+      right: -15%;
+      width: auto;
+    }
   }
 
   &__background-image {
@@ -110,6 +123,10 @@ import UiButton from '../ui/uiButton.vue';
     z-index: 1;
     background-color: $gray-light;
     padding: vw(65) 0 vw(55) 0;
+
+    @include mobile {
+      padding: vmin(25) 0 vmin(25) 0;
+    }
 
     // &::after {
     //   content: "";
@@ -140,34 +157,13 @@ import UiButton from '../ui/uiButton.vue';
     grid-template-columns: 1fr 0.7fr;
     gap: vw(36);
 
-    // &::after {
-    //   content: "";
-    //   z-index: 1;
-    //   // top: vw(-28);
-    //   top: 0;
-    //   background-color: $yellow;
-    //   width: vw(1);
-    //   left: vw(43);
-    //   bottom: 0;
-    //   position: absolute;
-    // }
-
-    // &::before {
-    //   content: "";
-    //   z-index: 1;
-    //   top: 0;
-    //   background-color: $yellow;
-    //   width: vw(1);
-    //   right: vw(43);
-    //   bottom: 0;
-    //   position: absolute;
-    // }
+    @include mobile {
+      padding: 0 vmin(10);
+      grid-template-columns: 1fr;
+    }
   }
 
-  &__aside {
-    // padding: vw(15);
-    // border-right: vw(1) solid $yellow;
-  }
+  &__aside {}
 
   &__title {
     margin-bottom: vw(30);
@@ -178,6 +174,12 @@ import UiButton from '../ui/uiButton.vue';
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $black-second;
+
+    @include mobile {
+      font-size: vmin(38);
+      line-height: vmin(39);
+      margin-bottom: vmin(20);
+    }
   }
 
   &__image-wrapper {
@@ -189,6 +191,11 @@ import UiButton from '../ui/uiButton.vue';
     aspect-ratio: 694/587;
     object-fit: cover;
     border-radius: vw(15);
+
+    @include mobile {
+      aspect-ratio: 319/266;
+      border-radius: vmin(10);
+    }
   }
 
   &__content {
@@ -201,12 +208,20 @@ import UiButton from '../ui/uiButton.vue';
   &__filters-group:first-child {
     margin-bottom: vw(15);
     padding-bottom: vw(15);
+
     // border-bottom: vw(1) solid $yellow;
+    @include mobile {
+      margin-bottom: vmin(15);
+    }
   }
 
   &__filters-group {
     display: grid;
+
     // margin-bottom: vw(15);
+    @include mobile {
+      margin-bottom: vmin(15);
+    }
   }
 
   &__filters-label {
@@ -220,6 +235,13 @@ import UiButton from '../ui/uiButton.vue';
     color: $yellow-dark;
     display: inline-block;
     margin-bottom: vw(15);
+
+    @include mobile {
+      max-width: 100%;
+      font-size: vmin(16);
+      line-height: vmin(17);
+      margin-bottom: vmin(10);
+    }
   }
 
   &__filters-subtitle {
@@ -231,12 +253,22 @@ import UiButton from '../ui/uiButton.vue';
     color: $black-light;
     display: inline-block;
     margin-bottom: vw(15);
+
+    @include mobile {
+      font-size: vmin(12);
+      line-height: vmin(15);
+      margin-bottom: vmin(10);
+    }
   }
 
   &__filters-buttons {
     gap: vw(10);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    @include mobile {
+      gap: vmin(5);
+    }
   }
 
   &__button {
@@ -247,6 +279,11 @@ import UiButton from '../ui/uiButton.vue';
     letter-spacing: 0%;
     text-align: center;
     text-transform: uppercase;
+
+    @include mobile {
+      font-size: vmin(10);
+      line-height: vmin(10);
+    }
   }
 
   &__list {
@@ -257,12 +294,26 @@ import UiButton from '../ui/uiButton.vue';
     max-height: vw(374);
     margin-right: vw(-15);
     padding-right: vw(15);
+
+    @include mobile {
+      margin-bottom: 0;
+      gap: vmin(5);
+      max-height: vmin(260);
+      margin-right: vmin(-10);
+      padding-right: vmin(10);
+    }
   }
 
   &__item {
     border-radius: vw(12);
     padding: vw(20);
     border: vw(1) solid $yellow-dark;
+
+    @include mobile {
+      border-radius: vmin(8);
+      padding: vmin(14) vmin(10);
+      border: vmin(1) solid $yellow-dark;
+    }
   }
 
   &__item-top {
@@ -278,6 +329,10 @@ import UiButton from '../ui/uiButton.vue';
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $brown;
+
+    @include mobile {
+      font-size: vmin(16);
+    }
   }
 
   &__item-tags {
@@ -286,10 +341,23 @@ import UiButton from '../ui/uiButton.vue';
     display: flex;
     flex-wrap: wrap;
     gap: vw(5);
+
+    @include mobile {
+      margin-right: 0;
+      margin-top: vmin(-5);
+      gap: vmin(5);
+    }
   }
 
   &__button-tag {
     color: $black-light;
+
+    @include mobile {
+      text-transform: capitalize;
+      letter-spacing: 0%;
+      font-size: vmin(8);
+      line-height: vmin(10);
+    }
   }
 
   &__tag {}
@@ -297,6 +365,11 @@ import UiButton from '../ui/uiButton.vue';
   &__item-middle {
     margin-top: vw(5);
     min-height: vw(75);
+
+    @include mobile {
+      margin-top: vmin(5);
+      min-height: vmin(50);
+    }
   }
 
   &__description {
@@ -306,6 +379,11 @@ import UiButton from '../ui/uiButton.vue';
     line-height: vw(22);
     letter-spacing: 0px;
     color: $black-light;
+
+    @include mobile {
+      font-size: vmin(11);
+      line-height: vmin(15);
+    }
   }
 
   &__item-bottom {
@@ -322,6 +400,11 @@ import UiButton from '../ui/uiButton.vue';
     line-height: vw(15);
     letter-spacing: 0%;
     text-align: center;
+
+    @include mobile {
+      font-size: vmin(8);
+      line-height: vmin(10);
+    }
   }
 
   &__price {
@@ -334,6 +417,11 @@ import UiButton from '../ui/uiButton.vue';
     letter-spacing: 0px;
     text-transform: uppercase;
     color: $yellow-dark;
+
+    @include mobile {
+      font-size: vmin(24);
+      min-width: vmin(115);
+    }
   }
 }
 </style>
