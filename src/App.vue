@@ -13,8 +13,10 @@ const { isMobile } = useBreakpoint()
 import HomePage from '@/components/pages/HomePage.vue';
 import {
   animateDelivery,
+  animateMobileDelivery,
   animateGallery,
-  animateSecure
+  animateSecure,
+  animateMobileSecure
 } from "@/utils/animations";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -102,6 +104,8 @@ onMounted(async () => {
           animateSecure(gsap)
         } else {
           createMobileAnimations();
+          animateMobileDelivery(gsap)
+          animateMobileSecure(gsap)
         }
       });
     },

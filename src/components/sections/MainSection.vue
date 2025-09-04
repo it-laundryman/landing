@@ -130,6 +130,7 @@ const toggleMenu = () => {
   cursor: pointer;
 
   @include mobile {
+    border: vmin(1.5) solid $yellow;
     padding: vmin(12) vmin(14);
     gap: vmin(6);
     border-radius: vmin(50);

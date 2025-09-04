@@ -141,6 +141,8 @@
     padding: 0 vmin(10) vmin(40);
     margin-top: calc(100vw - 100.25vmin);
     padding-top: calc(100vw - 50.25vmin);
+    padding-top: 40vmax;
+    margin-top: -5vmax;
   }
 
   &__content {

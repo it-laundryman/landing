@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="slider">
-
+        <img class="swipe-icon" src="@/assets/images/hand-gesture.png" alt="hand-gesture">
         <swiper-container :slides-per-view="4" class="slider__wrapper" :breakpoints="{
           0: { slidesPerView: 1.2, enabled: true },
           768: { slidesPerView: 4, enabled: false }
@@ -87,61 +87,6 @@
           </swiper-slide>
         </swiper-container>
       </div>
-      <!-- <div class="delivery__tile">
-        <div class="delivery__item">
-          <UiCircle>
-            <template #content>
-              <div class="delivery__item-content">
-                <span class="delivery__item-title">Professional Rental Management</span>
-                <p class="delivery__item-text">
-                  Our in-house team handles guest bookings, property care, and marketing. We ensure stable, optimized
-                  returns with zero operational burden.
-                </p>
-              </div>
-            </template>
-          </UiCircle>
-        </div>
-        <div class="delivery__item">
-          <UiCircle>
-            <template #content>
-              <div class="delivery__item-content">
-                <span class="delivery__item-title">Established Location Advantages</span>
-                <p class="delivery__item-text">
-                  Sanur delivers consistent, predictable returns, supported by steady tourist demand and major ongoing
-                  infrastructure investments.
-                </p>
-              </div>
-            </template>
-          </UiCircle>
-        </div>
-        <div class="delivery__item">
-          <UiCircle>
-            <template #content>
-              <div class="delivery__item-content">
-                <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
-                <p class="delivery__item-text">
-                  All villas come with full legal documentation, clear titles, and direct purchase from the developer.
-                </p>
-              </div>
-            </template>
-          </UiCircle>
-
-        </div>
-        <div class="delivery__item">
-          <UiCircle>
-            <template #content>
-              <div class="delivery__item-content">
-                <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
-                <p class="delivery__item-text">
-                  Institutional-level documentation, government permits, and transparent legal structure. Full due
-                  diligence support provided.
-                </p>
-              </div>
-            </template>
-          </UiCircle>
-
-        </div>
-      </div> -->
     </div>
   </section>
 </template>
@@ -177,6 +122,7 @@ register();
       flex-direction: column;
       padding-top: 0;
       padding-bottom: vmin(30);
+      gap: vmin(20);
     }
   }
 
@@ -248,21 +194,33 @@ register();
   }
 
   &__intro-text {
+    text-wrap: balance;
     font-family: 'Plus Jakarta Sans';
     font-weight: 400;
     font-size: vw(16);
     line-height: 130%;
     letter-spacing: 0px;
     color: $black-light;
+
+    @include mobile {
+      font-size: vmin(12);
+    }
   }
 
   .slider {
+    position: relative;
     overflow: hidden;
 
     @include mobile {
       padding: vmin(10);
+      padding-top: vmin(30);
       margin: vmin(-10);
     }
+  }
+
+  .swipe-icon {
+    top: vmin(0);
+    right: vmin(20);
   }
 
   swiper-container::part(container) {

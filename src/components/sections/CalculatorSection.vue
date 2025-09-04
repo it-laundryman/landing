@@ -145,6 +145,10 @@ const options = [
   border: vw(1) solid rgb($yellow, 0.26);
   background: #012210;
   box-shadow: var(--el-box-shadow-light);
+
+  @include mobile {
+    border: vmin(1) solid rgb($yellow, 0.26);
+  }
 }
 
 .calculator {
@@ -395,6 +399,7 @@ const options = [
     gap: vw(10);
 
     @include mobile {
+      border: vmin(1) solid rgb($yellow, 0.26);
       padding: vmin(5);
       border-radius: vmin(9);
       display: grid;
@@ -411,6 +416,7 @@ const options = [
     justify-content: space-between;
 
     @include mobile {
+      border: vmin(1) solid rgb($yellow, 0.26);
       padding: vmin(13) vmin(10);
       border-radius: vmin(7);
       display: flex;
