@@ -94,6 +94,11 @@ import UiButton from '../ui/uiButton.vue';
     overflow: hidden; // скрываем лишнее за пределами
     margin-bottom: vw(40);
     position: relative;
+
+    @include mobile {
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
   }
 
   &__list {
@@ -135,7 +140,10 @@ import UiButton from '../ui/uiButton.vue';
     // left: 50%;
 
     @include mobile {
+      aspect-ratio: auto;
+      border: vmin(2) solid $yellow-light;
       height: vmin(100);
+      width: vmin(100);
       bottom: -12.5%;
       transform: translateX(-50%) translateY(12.5%);
     }

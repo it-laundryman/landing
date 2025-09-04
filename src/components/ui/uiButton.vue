@@ -111,6 +111,10 @@ const classes = computed(() => {
   background: transparent;
   border: vw(1) solid $yellow;
   color: $yellow;
+
+  @include mobile {
+    border: vmin(1) solid $yellow;
+  }
 }
 
 .base-button--outline-dark-yellow {
@@ -118,7 +122,9 @@ const classes = computed(() => {
   border: vw(1) solid $yellow-dark;
   color: $yellow;
 
-
+  @include mobile {
+    border: vmin(1) solid $yellow-dark;
+  }
 }
 
 .base-button--outline-transparent-yellow {
@@ -140,12 +146,25 @@ const classes = computed(() => {
   background: transparent;
   border: vw(1) solid $brown;
   color: $brown;
+
+  &:hover {
+    background-color: $brown;
+    color: $white;
+  }
+
+  @include mobile {
+    border: vmin(1) solid $brown;
+  }
 }
 
 .base-button--outline-brown.active {
   background: $brown;
   border: vw(1) solid $brown;
   color: $white;
+
+  @include mobile {
+    border: vmin(1) solid $brown;
+  }
 }
 
 .base-button--ghost {

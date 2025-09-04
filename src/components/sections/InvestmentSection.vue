@@ -1,89 +1,107 @@
 <template>
   <section class="investment">
-    <div class="investment__background">
-      <img class="investment__background-image" src="@/assets/images/bg-investment.svg" alt="">
-    </div>
-    <div class="investment__layout__content">
-      <div class="investment__layout">
+    <div class="investment__wrapper">
 
-        <!-- левая часть -->
-        <div class="investment__aside">
-          <h5 class="investment__title">Select Your<br />Investment Unit</h5>
-          <div class="investment__image-wrapper">
-            <img class="investment__image" src="@/assets/images/investment.png" alt="">
-          </div>
-        </div>
+      <div class="investment__background">
+        <img class="investment__background-image" src="@/assets/images/bg-investment.svg" alt="">
+      </div>
+      <div class="investment__layout__content">
+        <div class="investment__layout">
 
-        <!-- правая часть -->
-        <div class="investment__content">
-
-          <!-- фильтры -->
-          <div class="investment__filters">
-            <div class="investment__filters-group">
-              <span class="investment__filters-label">Available Investment Units</span>
-              <p class="investment__filters-subtitle">Choose type of finish:</p>
-              <div class="investment__filters-buttons">
-                <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">premium
-                </UiButton>
-                <UiButton class="investment__button active" variant="outline-brown" size="lg" shape="rounded">balanced
-                </UiButton>
-              </div>
-            </div>
-
-            <div class="investment__filters-group">
-              <span class="investment__filters-subtitle">Choose Type of Villa:</span>
-              <div class="investment__filters-buttons">
-                <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">all units
-                </UiButton>
-                <UiButton class="investment__button active" variant="outline-brown" size="lg" shape="rounded">2 Bedroom
-                </UiButton>
-                <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">3 Bedroom
-                </UiButton>
-                <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">4 Bedroom
-                </UiButton>
-                <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">5 Bedroom
-                </UiButton>
-                <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">Best ROI
-                </UiButton>
-              </div>
+          <!-- левая часть -->
+          <div class="investment__aside">
+            <h5 class="investment__title">Select Your<br />Investment Unit</h5>
+            <div class="investment__image-wrapper">
+              <img class="investment__image" src="@/assets/images/investment.png" alt="">
             </div>
           </div>
 
-          <!-- список юнитов -->
-          <div class="investment__list">
-            <div class="investment__item" v-for="idx in 13" :key="idx">
-              <div class="investment__item-top">
-                <span class="investment__item-name">Unit 7 - 4BR</span>
-                <div class="investment__item-tags">
-                  <UiButton class="investment__button investment__button-tag" variant="outline-dark-yellow"
-                    shape="rounded" size="md">Phase 2
+          <!-- правая часть -->
+          <div class="investment__content">
+
+            <!-- фильтры -->
+            <div class="investment__filters">
+              <div class="investment__filters-group">
+                <span class="investment__filters-label">Available Investment Units</span>
+                <p class="investment__filters-subtitle">Choose type of finish:</p>
+                <div class="investment__filters-buttons">
+                  <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">premium
                   </UiButton>
-                  <UiButton class="investment__button investment__button-tag" variant="outline-dark-yellow"
-                    shape="rounded" size="md">Premium</UiButton>
+                  <UiButton class="investment__button active" variant="outline-brown" size="lg" shape="rounded">balanced
+                  </UiButton>
                 </div>
               </div>
-              <div class="investment__item-middle">
-                <p class="investment__description">160m² • Premium Location</p>
-              </div>
-              <div class="investment__item-bottom">
-                <UiButton class="investment__roi" variant="solid-yellow" shape="rounded" size="md">Annualised ROI: 10.6%
-                </UiButton>
-                <span class="investment__price">$281 239</span>
+
+              <div class="investment__filters-group">
+                <span class="investment__filters-subtitle">Choose Type of Villa:</span>
+                <div class="investment__filters-buttons">
+                  <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">all units
+                  </UiButton>
+                  <UiButton class="investment__button active" variant="outline-brown" size="lg" shape="rounded">2
+                    Bedroom
+                  </UiButton>
+                  <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">3 Bedroom
+                  </UiButton>
+                  <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">4 Bedroom
+                  </UiButton>
+                  <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">5 Bedroom
+                  </UiButton>
+                  <UiButton class="investment__button" variant="outline-brown" size="lg" shape="rounded">Best ROI
+                  </UiButton>
+                </div>
               </div>
             </div>
-          </div>
 
+            <!-- список юнитов -->
+            <div class="investment__list" :class="{ 'investment__list--more': isMore }">
+              <div class="investment__item" v-for="idx in 13" :key="idx">
+                <div class="investment__item-top">
+                  <span class="investment__item-name">Unit 7 - 4BR</span>
+                  <div class="investment__item-tags">
+                    <UiButton class="investment__button investment__button-tag" variant="outline-dark-yellow"
+                      shape="rounded" size="md">Phase 2
+                    </UiButton>
+                    <UiButton class="investment__button investment__button-tag" variant="outline-dark-yellow"
+                      shape="rounded" size="md">Premium</UiButton>
+                  </div>
+                </div>
+                <div class="investment__item-middle">
+                  <p class="investment__description">160m² • Premium Location</p>
+                </div>
+                <div class="investment__item-bottom">
+                  <UiButton class="investment__roi" variant="solid-yellow" shape="rounded" size="md">Annualised ROI:
+                    10.6%
+                  </UiButton>
+                  <span class="investment__price">$281 239</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
-
+    <div class="investment__more">
+      <span class="investment__more-label">see more</span>
+      <div class="investment__more-btn" @click="toggleMore">
+        <div class="investment__more-btn_wrapper">
+          <IconArrowDown :class="{ 'rotate': isMore }" />
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import IconArrowDown from '../icons/IconArrowDown.vue';
 import UiButton from '../ui/uiButton.vue';
 
+const isMore = ref(false)
 
+const toggleMore = () => {
+  isMore.value = !isMore.value
+}
 </script>
 
 <style scoped lang="scss">
@@ -94,11 +112,77 @@ import UiButton from '../ui/uiButton.vue';
   margin-top: vw(60);
 
   @include mobile {
-    overflow: hidden;
+    // overflow: hidden;
     margin-top: vmin(15);
     padding-top: vmin(52);
     // margin-top: vmin(60);
   }
+
+  &__wrapper {
+    @include mobile {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+
+  &__more {
+    z-index: 1;
+    position: absolute;
+    bottom: vmin(-20);
+    left: 50%;
+    justify-items: center;
+    transform: translateX(-50%);
+    display: none;
+
+    @include mobile {
+      display: grid;
+    }
+  }
+
+  &__more-label {
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
+    font-size: vmin(10);
+    line-height: vmin(13);
+    letter-spacing: 0px;
+    text-align: center;
+    color: $brown;
+  }
+
+  &__more-btn {
+    padding: vmin(4);
+    border-radius: 50%;
+    width: fit-content;
+    background-color: $gray-light;
+
+    &_wrapper {
+      background-color: $brown;
+      border-radius: 50%;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+      width: vmin(33);
+      height: vmin(33);
+
+      svg {
+        transition: all 0.3s ease-in-out;
+
+        :deep(path) {
+          stroke: $white;
+        }
+
+        width: vmin(11);
+        height: vmin(6);
+      }
+
+      svg.rotate {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
 
   &__background {
     position: absolute;
@@ -125,7 +209,7 @@ import UiButton from '../ui/uiButton.vue';
     padding: vw(65) 0 vw(55) 0;
 
     @include mobile {
-      padding: vmin(25) 0 vmin(25) 0;
+      padding: vmin(25) 0 vmin(40) 0;
     }
 
     // &::after {
@@ -294,13 +378,26 @@ import UiButton from '../ui/uiButton.vue';
     max-height: vw(374);
     margin-right: vw(-15);
     padding-right: vw(15);
+    transition: max-height 1s ease-in-out;
 
     @include mobile {
       margin-bottom: 0;
       gap: vmin(5);
       max-height: vmin(260);
+      // max-height: none;
+      overflow-y: visible;
       margin-right: vmin(-10);
       padding-right: vmin(10);
+    }
+
+    &--more {
+      @include mobile {
+        margin-bottom: 0;
+        gap: vmin(5);
+        max-height: vmin(2000);
+        margin-right: vmin(-10);
+        padding-right: vmin(10);
+      }
     }
   }
 

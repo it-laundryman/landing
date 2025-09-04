@@ -1,6 +1,9 @@
 <template>
-  <MainSection />
-  <FounderSection id="about" />
+  <div>
+    <MainSection />
+    <FounderSection id="about" />
+  </div>
+
   <DeliversSection id="residents" />
   <GallerySection />
   <InvestmentSection />

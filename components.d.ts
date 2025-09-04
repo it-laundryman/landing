@@ -21,6 +21,7 @@ declare module 'vue' {
     FounderSection: typeof import('./src/components/sections/FounderSection.vue')['default']
     GallerySection: typeof import('./src/components/sections/GallerySection.vue')['default']
     HomePage: typeof import('./src/components/pages/HomePage.vue')['default']
+    IconArrowDown: typeof import('./src/components/icons/IconArrowDown.vue')['default']
     IconArrowLeft: typeof import('./src/components/icons/IconArrowLeft.vue')['default']
     IconArrowTopRight: typeof import('./src/components/icons/IconArrowTopRight.vue')['default']
     IconFolder: typeof import('./src/components/icons/iconFolder.vue')['default']

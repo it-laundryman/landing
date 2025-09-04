@@ -1,6 +1,6 @@
-import { animateDelivery } from './delivery'
+import { animateDelivery, animateMobileDelivery } from './delivery'
 import { animateGallery } from './gallery'
-import { animateSecure } from './secure'
+import { animateSecure, animateMobileSecure } from './secure'
 // import { animateAngle } from './angleAnimation'
 // import { animateDrawing } from './drawingAnimation'
 // import { animateFinally } from './finallyAnimation'
@@ -18,7 +18,9 @@ import { animateSecure } from './secure'
 export {
   animateGallery,
   animateDelivery,
-  animateSecure
+  animateMobileDelivery,
+  animateSecure,
+  animateMobileSecure
   // animateAngle,
   // animateDrawing,
   // animateFinally,

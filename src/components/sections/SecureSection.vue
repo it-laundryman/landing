@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="slider">
-
+      <img class="swipe-icon" src="@/assets/images/hand-gesture.png" alt="hand-gesture">
       <swiper-container :slides-per-view="3" class="slider__wrapper" :breakpoints="{
         0: { slidesPerView: 1.2, enabled: true },
         768: { slidesPerView: 3, enabled: false }
@@ -213,6 +213,7 @@ register();
       line-height: vmin(15);
       padding-top: vmin(15);
       padding-bottom: vmin(15);
+      margin-top: vmin(35);
     }
   }
 
@@ -232,11 +233,18 @@ register();
 
   .slider {
     overflow: hidden;
+    position: relative;
 
     @include mobile {
       padding: vmin(10);
+      padding-top: vmin(30);
       margin: vmin(-10);
     }
+  }
+
+  .swipe-icon {
+    top: vmin(0);
+    right: vmin(20);
   }
 
   swiper-container::part(container) {
