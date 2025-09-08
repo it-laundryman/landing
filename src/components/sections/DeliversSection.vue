@@ -210,6 +210,8 @@ register();
   .slider {
     position: relative;
     overflow: hidden;
+    padding: vw(20);
+    margin: vw(-20);
 
     @include mobile {
       padding: vmin(10);
