@@ -8,7 +8,7 @@
       <div class="secure__header-content">
         <p class="secure__description">Only 11 villas are available in one of Bali’s most sought-after locations. Our
           expert team is here to guide you every step of the way.</p>
-        <UiButton class="secure__button" variant="solid-yellow" size="md" shape="rounded">
+        <UiButton class="secure__button" variant="solid-yellow" size="md" shape="rounded" @click="$emit('openForm')">
           Explore Complete VERDANA Experience </UiButton>
       </div>
     </div>

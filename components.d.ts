@@ -10,10 +10,13 @@ declare module 'vue' {
   export interface GlobalComponents {
     AnalysisSection: typeof import('./src/components/sections/AnalysisSection.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    AppForm: typeof import('./src/components/AppForm.vue')['default']
     CalculatorSection: typeof import('./src/components/sections/CalculatorSection.vue')['default']
     DecorSection: typeof import('./src/components/sections/DecorSection.vue')['default']
     DeliversSection: typeof import('./src/components/sections/DeliversSection.vue')['default']
     DocumentationSection: typeof import('./src/components/sections/DocumentationSection.vue')['default']
+    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
