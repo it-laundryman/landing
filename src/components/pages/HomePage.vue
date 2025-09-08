@@ -12,8 +12,11 @@
   <DecorSection />
   <PerfomanceSection id="location" />
   <DocumentationSection />
-  <SecureSection />
+  <SecureSection @openForm="toggleForm" />
   <AppFooter />
+  <Transition name="fade">
+    <AppForm v-if="isOpenModal" @closeForm="toggleForm" />
+  </Transition>
 </template>
 
 <script setup lang="ts">
@@ -27,8 +30,16 @@ import AnalysisSection from '@/components/sections/AnalysisSection.vue';
 import DecorSection from '@/components/sections/DecorSection.vue';
 import PerfomanceSection from '@/components/sections/PerfomanceSection.vue';
 import DocumentationSection from '@/components/sections/DocumentationSection.vue';
-import SecureSection from '../sections/SecureSection.vue';
-import AppFooter from '../AppFooter.vue';
+import SecureSection from '@/components/sections/SecureSection.vue';
+import AppFooter from '@/components/AppFooter.vue';
+import AppForm from '@/components/AppForm.vue';
+import { ref } from 'vue';
+
+const isOpenModal = ref(false);
+
+const toggleForm = () => {
+  isOpenModal.value = !isOpenModal.value
+}
 </script>
 
 <style scoped lang="scss"></style>

@@ -127,10 +127,10 @@ defineExpose({ menuElement })
   // height: 100%;
   overflow: hidden;
   z-index: 10;
-  transition: transform .7s ease-in-out, visibility .7s ease-in-out;
+  // transition: transform .7s ease-in-out, visibility .7s ease-in-out;
   // opacity: 0;
-  visibility: hidden;
-  transform: translateX(-100vw);
+  // visibility: hidden;
+  // transform: translateX(-100vw);
 
   @include mobile {
     position: fixed;
@@ -162,11 +162,11 @@ defineExpose({ menuElement })
     }
   }
 
-  &.opened {
-    // opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-  }
+  // &.opened {
+  //   // opacity: 1;
+  //   visibility: visible;
+  //   transform: translateX(0);
+  // }
 
   &__background {
     position: absolute;

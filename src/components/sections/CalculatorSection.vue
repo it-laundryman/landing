@@ -12,58 +12,65 @@
           variations. Real-time analysis based on current market conditions.
         </p>
         <div class="calculator__filter">
-          <UiButton class="calculator__button-flt" variant="outline-yellow" shape="rounded" size="md">filter Analysis
+          <UiButton class="calculator__button-flt" variant="outline-yellow" shape="rounded" size="md"
+            @click="toggleFilters">filter Analysis
             Results
           </UiButton>
         </div>
-        <div class="calculator__fields">
-          <div class="calculator__field">
-            <span class="calculator__label">Construction Phase</span>
-            <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
-              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-            </el-select>
-          </div>
-          <div class="calculator__field">
-            <span class="calculator__label">Villa Unit Selection</span>
-            <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
-              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-            </el-select>
-          </div>
-          <div class="calculator__field">
-            <span class="calculator__label">Choose Type of Finish</span>
-            <div class="calculator__field__buttons">
-              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">premium
-              </UiButton>
-              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">balanced
-              </UiButton>
+        <Transition name="slide-left">
+          <div class="calculator__fields" v-if="isHiddenFilters">
+            <span class="calculator__fields-title">filter</span>
+            <span class="calculator__fields-close" @click="toggleFilters"><img src="@/assets/images/close.svg"
+                alt="close"></span>
+            <div class="calculator__field">
+              <span class="calculator__label">Construction Phase</span>
+              <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
             </div>
+            <div class="calculator__field">
+              <span class="calculator__label">Villa Unit Selection</span>
+              <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
+            </div>
+            <div class="calculator__field">
+              <span class="calculator__label">Choose Type of Finish</span>
+              <div class="calculator__field__buttons">
+                <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">premium
+                </UiButton>
+                <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">balanced
+                </UiButton>
+              </div>
 
-          </div>
-          <div class="calculator__field">
-            <span class="calculator__label">Rental Strategy</span>
-            <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
-              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-            </el-select>
-          </div>
-          <div class="calculator__field">
-            <span class="calculator__label">ADR Scenario</span>
-            <div class="calculator__field__buttons">
-              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">Optimistic
-              </UiButton>
-              <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">Base
-              </UiButton>
+            </div>
+            <div class="calculator__field">
+              <span class="calculator__label">Rental Strategy</span>
+              <el-select v-model="val" placeholder="Select" class="calculator__select" :suffix-icon="IconPlus">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
+            </div>
+            <div class="calculator__field">
+              <span class="calculator__label">ADR Scenario</span>
+              <div class="calculator__field__buttons">
+                <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">
+                  Optimistic
+                </UiButton>
+                <UiButton class="calculator__field__button" variant="outline-yellow" shape="rounded" size="lg">Base
+                </UiButton>
+              </div>
+            </div>
+            <div class="calculator__field">
+              <span class="calculator__label">Display Currency</span>
+              <el-radio-group class="calculator__radio" v-model="val">
+                <!-- works when >=2.6.0, recommended ✔️ not work when <2.6.0 ❌ -->
+                <el-radio value="Value 1">Indonesian Rupiah (IDR)</el-radio>
+                <!-- works when <2.6.0, deprecated act as value when >=3.0.0 -->
+                <el-radio label="Label 2 & Value 2">US Dollar (USD)</el-radio>
+              </el-radio-group>
             </div>
           </div>
-          <div class="calculator__field">
-            <span class="calculator__label">Display Currency</span>
-            <el-radio-group class="calculator__radio" v-model="val">
-              <!-- works when >=2.6.0, recommended ✔️ not work when <2.6.0 ❌ -->
-              <el-radio value="Value 1">Indonesian Rupiah (IDR)</el-radio>
-              <!-- works when <2.6.0, deprecated act as value when >=3.0.0 -->
-              <el-radio label="Label 2 & Value 2">US Dollar (USD)</el-radio>
-            </el-radio-group>
-          </div>
-        </div>
+        </Transition>
 
       </div>
 
@@ -112,10 +119,22 @@
 
 <script setup lang="ts">
 
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import IconPlus from '../icons/IconPlus.vue';
 import UiButton from '../ui/uiButton.vue';
+import { useBreakpoint } from "@/composables/useBreakpoint"
+
+const { isMobile } = useBreakpoint()
 const val = ref(1)
+const isOpenFilters = ref(false);
+
+const isHiddenFilters = computed(() => {
+  if (!isMobile.value) {
+    return true;
+  } else {
+    return isOpenFilters.value
+  }
+})
 const options = [
   {
     value: 'Phase 2 (Mid Construction - 5% Discount)',
@@ -138,6 +157,12 @@ const options = [
     label: 'Option5',
   },
 ]
+
+const toggleFilters = () => {
+  if (isMobile.value) {
+    isOpenFilters.value = !isOpenFilters.value
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -147,7 +172,7 @@ const options = [
   box-shadow: var(--el-box-shadow-light);
 
   @include mobile {
-    border: vmin(1) solid rgb($yellow, 0.26);
+    border: vmin(0.65) solid rgb($yellow, 0.26);
   }
 }
 
@@ -235,8 +260,72 @@ const options = [
     gap: vw(25);
 
     @include mobile {
-      display: none;
+      overflow-y: auto;
+      max-height: 100%;
+      gap: vmin(20);
+      min-width: vmin(320);
+      background-color: $green;
+      padding: vmin(25);
+      // display: none;
+      z-index: 10;
+      position: fixed;
+      left: 0;
+      // width: 100%;
+      top: 0;
+
       // TODO: add modal
+    }
+
+    &-title {
+      display: none;
+      font-family: 'Agatho';
+      font-weight: 400;
+      font-size: vmin(32);
+      line-height: vmin(36);
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      color: $white;
+      margin-bottom: vmin(15);
+
+      @include mobile {
+        display: block;
+      }
+    }
+
+    &-close {
+      display: none;
+      cursor: pointer;
+      position: absolute;
+      z-index: 2;
+      right: vw(30);
+      top: vw(50);
+      width: vw(40);
+      height: vw(40);
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+
+      border: vw(0.56) solid $yellow-middle;
+
+      @include mobile {
+        display: grid;
+        right: vmin(15);
+        top: vmin(15);
+        width: vmin(25);
+        height: vmin(25);
+        border: vmin(0.56) solid $yellow-middle;
+      }
+
+      img {
+        margin-top: vw(3);
+        width: 80%;
+        aspect-ratio: 1;
+
+        @include mobile {
+          margin-top: vmin(2);
+          width: 80%;
+        }
+      }
     }
   }
 
@@ -271,12 +360,20 @@ const options = [
   &__field {
     width: 100%;
     display: grid;
-    gap: 20px;
+    gap: vw(20);
+
+    @include mobile {
+      gap: vmin(8);
+    }
   }
 
   &__field__buttons {
     display: flex;
-    gap: vw(15);
+    gap: vw(8);
+
+    @include mobile {
+      gap: vmin(10);
+    }
   }
 
   &__field__button {
@@ -287,6 +384,12 @@ const options = [
     letter-spacing: 0%;
     text-align: center;
     text-transform: uppercase;
+
+    @include mobile {
+      font-size: vmin(9);
+      line-height: vmin(9);
+      padding: vmin(8) vmin(15);
+    }
   }
 
   &__label {
@@ -296,6 +399,11 @@ const options = [
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+
+    @include mobile {
+      font-size: vmin(11);
+      line-height: vmin(14);
+    }
   }
 
   &__select {
@@ -306,8 +414,16 @@ const options = [
 
     border-bottom: vw(1) solid $yellow;
 
+    @include mobile {
+      border-bottom: vmin(0.65) solid $yellow;
+    }
+
     :deep(.el-select__wrapper) {
       padding: vw(4) vw(6) vw(12) 0;
+
+      @include mobile {
+        padding: vmin(4) vmin(6) vmin(12) 0;
+      }
     }
 
     :deep(.el-select__wrapper.is-focused) {
@@ -326,16 +442,31 @@ const options = [
       letter-spacing: 0%;
       text-transform: uppercase;
       color: $yellow;
+
+      @include mobile {
+        font-size: vmin(9);
+        line-height: vmin(9);
+      }
     }
 
     :deep(.el-select__caret) {
       width: vw(14);
       height: vw(8);
+
+      @include mobile {
+        width: vmin(7);
+        height: vmin(3);
+      }
     }
 
     :deep(.el-icon svg) {
       width: vw(14);
       height: vw(8);
+
+      @include mobile {
+        width: vmin(7);
+        height: vmin(3);
+      }
     }
   }
 
@@ -355,6 +486,12 @@ const options = [
     text-align: center;
     text-transform: uppercase;
 
+    @include mobile {
+      gap: vmin(10);
+      font-size: vmin(9);
+      line-height: vmin(9);
+    }
+
     :deep(.el-radio) {
       margin-right: 0;
     }
@@ -364,11 +501,22 @@ const options = [
       --el-radio-input-width: #{vw(20)};
       --el-radio-input-bg-color: transparent;
       --el-radio-input-border: #{vw(1)} solid #{$yellow};
+
+      @include mobile {
+        --el-radio-input-height: #{vmin(14)};
+        --el-radio-input-width: #{vmin(14)};
+        --el-radio-input-border: #{vmin(0.65)} solid #{$yellow};
+      }
     }
 
     :deep(.el-radio__label) {
       font-size: vw(14);
       padding-left: vw(10);
+
+      @include mobile {
+        font-size: vmin(9);
+        padding-left: vmin(5);
+      }
     }
 
     :deep(.el-radio__inner:after) {
@@ -379,6 +527,11 @@ const options = [
       // top: 50%;
       // transform: translate(-50%, -50%) scale(0);
       transition: transform .15s ease-in;
+
+      @include mobile {
+        height: vmin(6);
+        width: vmin(6);
+      }
     }
 
     :deep(.el-radio__input.is-checked .el-radio__inner) {

@@ -18,7 +18,9 @@
         </div>
       </header>
     </div>
-    <MainMenu :class="{ 'opened': isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
+    <Transition name="slide-left">
+      <MainMenu v-if="isOpenMenu" :class="{ 'opened': isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
+    </Transition>
     <div class="main-info">
       <div class="main-info__content">
         <div class="main-info__title-wrapper">
