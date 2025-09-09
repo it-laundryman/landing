@@ -305,6 +305,7 @@ import AppMap from '../AppMap.vue';
       top: vw(25);
       display: flex;
       gap: vw(5);
+      z-index: 1;
     }
 
     &_sticker {
