@@ -16,6 +16,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.79",
     "@vueuse/core": "^14.0.0-alpha.0",
     "axios": "^1.11.0",
     "element-plus": "^2.11.1",

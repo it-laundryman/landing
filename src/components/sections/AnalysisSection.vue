@@ -47,7 +47,7 @@
           <span class="analysis__map_sticker">BY CAR</span>
         </div>
         <div class="analysis__map_map">
-          <img src="@/assets/images/map.png" alt="">
+          <AppMap />
         </div>
       </div>
     </div>
@@ -55,6 +55,7 @@
 </template>
 
 <script setup lang="ts">
+import AppMap from '../AppMap.vue';
 
 </script>
 
@@ -351,10 +352,13 @@
 
     &_map {
       width: 100%;
+      border-radius: 0 0 vw(15) vw(15);
+      overflow: hidden;
       aspect-ratio: 16 / 5;
 
       @include mobile {
         aspect-ratio: 1;
+        border-radius: vmin(10);
       }
 
       img {
