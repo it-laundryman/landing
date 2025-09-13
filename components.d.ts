@@ -12,6 +12,7 @@ declare module 'vue' {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppForm: typeof import('./src/components/AppForm.vue')['default']
     AppMap: typeof import('./src/components/AppMap.vue')['default']
+    AppMapTooltip: typeof import('./src/components/AppMapTooltip.vue')['default']
     CalculatorSection: typeof import('./src/components/sections/CalculatorSection.vue')['default']
     DecorSection: typeof import('./src/components/sections/DecorSection.vue')['default']
     DeliversSection: typeof import('./src/components/sections/DeliversSection.vue')['default']
