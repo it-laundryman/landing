@@ -42,12 +42,12 @@
       </div>
       <div class="analysis__map">
         <div class="analysis__map_stickers">
-          <span class="analysis__map_sticker">WALKABLE</span>
-          <span class="analysis__map_sticker">FREE SHUTLE</span>
-          <span class="analysis__map_sticker">BY CAR</span>
+          <span class="analysis__map_sticker" :class="{ 'analysis__map_sticker--active': activeFilter === filter.id }"
+            v-for="filter in filters" :key="filter.id" @click="changeActiveFilter(filter.id)">{{ filter.label }}</span>
         </div>
         <div class="analysis__map_map">
-          <AppMap />
+          <AppMap :filters="filters" :activeFilter="activeFilter" @changeActiveFilter="changeActiveFilter"
+            :changeActiveFilter="changeActiveFilter" />
         </div>
       </div>
     </div>
@@ -55,8 +55,26 @@
 </template>
 
 <script setup lang="ts">
-import AppMap from '../AppMap.vue';
 
+import { onMounted, ref } from 'vue';
+import AppMap from '../AppMap.vue';
+import type { IFilterMap } from '@/utils/types';
+
+const activeFilter = ref<string | null>(null)
+
+const filters = [
+  { label: "WALKABLE", value: "walk", id: 'walk' },
+  { label: "FREE SHUTTLE", value: "shuttle", id: 'shuttle' },
+  { label: "BY CAR", value: "car", id: 'car' }
+]
+
+const changeActiveFilter = (id: string) => {
+  activeFilter.value = id
+}
+
+onMounted(() => {
+  changeActiveFilter('walk')
+})
 </script>
 
 <style scoped lang="scss">
@@ -306,9 +324,17 @@ import AppMap from '../AppMap.vue';
       display: flex;
       gap: vw(5);
       z-index: 1;
+
+      @include mobile {
+        left: vmin(10);
+        top: auto;
+        bottom: vmin(15);
+        gap: vmin(5);
+      }
     }
 
     &_sticker {
+      cursor: pointer;
       display: flex;
       align-items: center;
       font-family: 'Wix Madefor Display';
@@ -321,6 +347,13 @@ import AppMap from '../AppMap.vue';
       border-radius: vw(53);
       background-color: $green-light;
 
+      @include mobile {
+        font-size: vmin(6);
+        line-height: vmin(8);
+        padding: vmin(4) vmin(8) vmin(4);
+        border-radius: vw(39);
+      }
+
       &::before {
         display: inline-block;
         content: "";
@@ -329,6 +362,12 @@ import AppMap from '../AppMap.vue';
         background-color: $yellow-dark;
         border-radius: 50%;
         margin-right: vw(7);
+
+        @include mobile {
+          width: vmin(3);
+          height: vmin(3);
+          margin-right: vmin(7);
+        }
       }
     }
 
@@ -349,6 +388,11 @@ import AppMap from '../AppMap.vue';
     &_sticker:nth-child(3) {
       background-color: $brown;
       color: $white;
+    }
+
+    &_sticker--active {
+      background-color: #5F5C56 !important;
+      color: $white !important;
     }
 
     &_map {
