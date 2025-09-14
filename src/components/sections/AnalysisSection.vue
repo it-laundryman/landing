@@ -3,9 +3,9 @@
     <div class="analysis__header">
       <div class="analysis__title-block">
         <h2 class="analysis__heading">Strategic Analysis</h2>
-        <span class="analysis__subheading">Location</span>
+        <span class="analysis__subheading"><span class="montecarloscriptb">L</span>ocation</span>
       </div>
-      <p class="analysis__description">
+      <p class="analysis__description" v-prevent-widow>
         Verdana is ideally located in the heart of Sanur. It offers swift access to the amenities and lifestyle features
         most valued by both residents and renters.
 
@@ -14,31 +14,31 @@
 
     <div class="analysis__content">
       <div class="analysis__tile">
-        <div class="analysis__tile-item">
-          <span class="analysis__time">5 min</span>
-          <p class="analysis__place">Bali International School</p>
-          <p class="analysis__benefit">Drives family rentals and long-term value</p>
+        <div class="analysis__tile-item" v-for="item in places" :key="item.id">
+          <span class="analysis__time">{{ readTime(item.id) }}</span>
+          <p class="analysis__place" v-dompurify-html="item.title" />
+          <p class="analysis__benefit">{{ item.description }}</p>
         </div>
-        <div class="analysis__tile-item">
+        <!-- <div class="analysis__tile-item">
           <span class="analysis__time">7 min</span>
           <p class="analysis__place">International Hospital</p>
-          <p class="analysis__benefit">attraction point for medical tourism</p>
+          <p class="analysis__benefit">Attraction point for medical tourism.</p>
         </div>
         <div class="analysis__tile-item">
           <span class="analysis__time">10 min</span>
           <p class="analysis__place">ICON<br />BALI Mall</p>
-          <p class="analysis__benefit">Upscale retail adds lifestyle value and convenience</p>
+          <p class="analysis__benefit">Upscale retail adds lifestyle value and convenience.</p>
         </div>
         <div class="analysis__tile-item">
           <span class="analysis__time">4 min</span>
           <p class="analysis__place">Sanur Beach</p>
-          <p class="analysis__benefit">Safe, family-friendly, and always in demand</p>
+          <p class="analysis__benefit">Safe, family-friendly, and always in demand.</p>
         </div>
         <div class="analysis__tile-item">
           <span class="analysis__time">2 min</span>
           <p class="analysis__place">Local Markets & Dining</p>
-          <p class="analysis__benefit">Authentic Bali vibes that guests love</p>
-        </div>
+          <p class="analysis__benefit">Authentic Bali vibes that guests love.</p>
+        </div> -->
       </div>
       <div class="analysis__map">
         <div class="analysis__map_stickers">
@@ -46,8 +46,8 @@
             v-for="filter in filters" :key="filter.id" @click="changeActiveFilter(filter.id)">{{ filter.label }}</span>
         </div>
         <div class="analysis__map_map">
-          <AppMap :filters="filters" :activeFilter="activeFilter" @changeActiveFilter="changeActiveFilter"
-            :changeActiveFilter="changeActiveFilter" />
+          <AppMap ref="mapElement" :filters="filters" :activeFilter="activeFilter"
+            @changeActiveFilter="changeActiveFilter" :changeActiveFilter="changeActiveFilter" />
         </div>
       </div>
     </div>
@@ -67,6 +67,46 @@ const filters = [
   { label: "FREE SHUTTLE", value: "shuttle", id: 'shuttle' },
   { label: "BY CAR", value: "car", id: 'car' }
 ]
+
+const places = [
+  {
+    id: "Bali international school",
+    title: "Bali International School",
+    description: "Drives family rentals and long-term value.",
+  },
+  {
+    id: "Internacional hospital",
+    title: "International Hospital",
+    description: "Attraction point for medical tourism.",
+  },
+  {
+    id: "Icon Bali mall",
+    title: "ICON<br />BALI Mall",
+    description: "Upscale retail adds lifestyle value and convenience.",
+  },
+  {
+    id: "Sanur beach",
+    title: "Sanur Beach",
+    description: "Safe, family-friendly, and always in demand.",
+  },
+  {
+    id: "Local Markets",
+    title: "Local Markets & Dining",
+    description: "Authentic Bali vibes that guests love.",
+  }
+]
+
+const mapElement = ref()
+
+const readTime = (id: string) => {
+  return mapElement.value?.markers.reduce((acc: string, m: any) => {
+    if (m.id === id) {
+      acc = m.travelTime
+      return m.travelTime
+    }
+    return acc
+  }, '')
+}
 
 const changeActiveFilter = (id: string) => {
   activeFilter.value = id
@@ -171,6 +211,8 @@ onMounted(() => {
 
   &__tile-item {
     display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
     grid-template-columns: 88%;
     padding: vw(25);
     border: vw(1) solid $yellow-middle;
@@ -254,30 +296,33 @@ onMounted(() => {
 
   &__time {
     position: absolute;
-    right: vw(10);
-    top: vw(10);
+    right: vw(20);
+    top: vw(-5);
     font-family: 'Wix Madefor Display';
     font-weight: 400;
-    font-size: vw(9);
-    line-height: vw(11);
+    font-size: vw(14);
+    line-height: vw(14);
     letter-spacing: 0%;
     text-align: center;
     color: $white;
     background-color: $green-light;
-    padding: vw(6) vw(9);
+    padding: vw(7) vw(10);
     border-radius: vw(53);
     display: flex;
     width: fit-content;
 
     @include mobile {
-      padding: vmin(3) vmin(5);
-      font-size: vmin(5);
-      line-height: vmin(6);
+      right: vmin(6);
+      top: vmin(6);
+      padding: vmin(5) vmin(6);
+      font-size: vmin(8);
+      line-height: vmin(7);
       border-radius: vmin(33);
     }
   }
 
   &__place {
+
     text-wrap: balance;
     color: $yellow-middle;
     font-family: 'Agatho';
@@ -290,6 +335,7 @@ onMounted(() => {
     margin-bottom: vw(12);
 
     @include mobile {
+      max-width: 85%;
       font-size: vmin(11);
       line-height: vmin(11);
       margin-bottom: vmin(8);

@@ -175,7 +175,7 @@ defineExpose({ menuElement })
     width: 100%;
 
     @include mobile {
-      bottom: -23%;
+      bottom: -16%;
     }
   }
 

@@ -56,9 +56,8 @@
 @font-face {
   font-family: 'Agatho';
   font-style: normal;
-  font-weight: 700;
-  src: url('@/assets/fonts/Agatho/agatho-bold-webfont.woff2');
-  
+  font-weight: 400;
+  src: url('@/assets/fonts/Agatho/agatho-webfont.woff2');
 }
 
 @font-face {
@@ -66,15 +65,13 @@
   font-style: normal;
   font-weight: 500;
   src: url('@/assets/fonts/Agatho/agatho-medium-webfont.woff2');
-  
 }
 
 @font-face {
   font-family: 'Agatho';
   font-style: normal;
-  font-weight: 400;
-  src: url('@/assets/fonts/Agatho/agatho-webfont.woff2');
-  
+  font-weight: 700;
+  src: url('@/assets/fonts/Agatho/agatho-bold-webfont.woff2');
 }
 
 @font-face {
@@ -98,6 +95,14 @@
   font-style: normal;
   font-weight: 400;
   src: url('@/assets/fonts/MonteCarlo/MonteCarlo-Regular.ttf');
+  
+}
+
+@font-face {
+  font-family: 'MonteCarloScriptB';
+  font-style: normal;
+  font-weight: 400;
+  src: url('@/assets/fonts/MonteCarloScriptB/Web Fonts/c7ea4398da11e7aa0c1f9db50e495514.woff2');
   
 }
 

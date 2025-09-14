@@ -5,12 +5,13 @@
         <div class="delivery__title-container">
           <div class="delivery__title-wrapper">
             <h2 class="delivery__heading">Why VERDANA Delivers Superior Returns</h2>
-            <span class="delivery__subheading"><span>grade</span> <span>investment</span></span>
+            <span class="delivery__subheading"><span><span class="montecarloscriptb">g</span>rade</span>
+              <span>investment</span></span>
           </div>
         </div>
 
         <div class="delivery__intro">
-          <p class="delivery__intro-text">
+          <p class="delivery__intro-text" v-prevent-widow>
             Institutional-grade investment opportunity with complete transparency, professional management, and
             performance in Bali's premium market.
           </p>
@@ -28,7 +29,7 @@
                 <template #content>
                   <div class="delivery__item-content">
                     <span class="delivery__item-title">Professional Rental Management</span>
-                    <p class="delivery__item-text">
+                    <p class="delivery__item-text" v-prevent-widow>
                       Our in-house team handles guest bookings, property care, and marketing. We ensure stable,
                       optimized
                       returns with zero operational burden.
@@ -44,7 +45,7 @@
                 <template #content>
                   <div class="delivery__item-content">
                     <span class="delivery__item-title">Established Location Advantages</span>
-                    <p class="delivery__item-text">
+                    <p class="delivery__item-text" v-prevent-widow>
                       Sanur delivers consistent, predictable returns, supported by steady tourist demand and major
                       ongoing
                       infrastructure investments.
@@ -60,7 +61,7 @@
                 <template #content>
                   <div class="delivery__item-content">
                     <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
-                    <p class="delivery__item-text">
+                    <p class="delivery__item-text" v-prevent-widow>
                       All villas come with full legal documentation, clear titles, and direct purchase from
                       the developer.
                     </p>
@@ -75,7 +76,7 @@
                 <template #content>
                   <div class="delivery__item-content">
                     <span class="delivery__item-title">Complete<br />Legal<br />Compliance</span>
-                    <p class="delivery__item-text">
+                    <p class="delivery__item-text" v-prevent-widow>
                       Institutional-level documentation, government permits, and transparent legal structure. Full due
                       diligence support provided.
                     </p>
@@ -164,7 +165,7 @@ register();
     font-size: vw(52);
     line-height: vw(48);
     letter-spacing: 0px;
-    color: $yellow;
+    color: $yellow-dark;
     display: inline-block;
     grid-row: 1;
     grid-column: 1;
@@ -266,7 +267,7 @@ register();
   &__item-content {
     display: flex;
     flex-direction: column;
-    padding: vw(60) vw(50) vw(60);
+    padding: vw(60) vw(30) vw(60) vw(50);
     width: 100%;
     height: 100%;
 
@@ -283,7 +284,7 @@ register();
     line-height: vw(25);
     letter-spacing: 0px;
     text-transform: uppercase;
-    color: $yellow;
+    color: $yellow-dark;
     display: block;
     margin-bottom: vw(20);
 

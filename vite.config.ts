@@ -6,6 +6,8 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import fixTextPlugin from "./src/plugins/fix-text"
+
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -18,6 +20,7 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+    fixTextPlugin()
   ],
   resolve: {
     alias: {
@@ -26,8 +29,11 @@ export default defineConfig({
   },
   css: {
     preprocessorOptions: {
+      // scss: {
+      //   additionalData: `@import "@/assets/styles/_helpers";`
+      // }
       scss: {
-        additionalData: `@import "@/assets/styles/_helpers";`
+        additionalData: `@use "@/assets/styles/global.scss" as *;`
       }
     }
   },

@@ -6,7 +6,8 @@
         <span class="secure__subheading">Premium location</span>
       </div>
       <div class="secure__header-content">
-        <p class="secure__description">Only 11 villas are available in one of Bali’s most sought-after locations. Our
+        <p class="secure__description" v-prevent-widow>Only 11 villas are available in one of Bali’s most sought-after
+          locations. Our
           expert team is here to guide you every step of the way.</p>
         <UiButton class="secure__button" variant="solid-yellow" size="md" shape="rounded" @click="$emit('openForm')">
           Explore Complete VERDANA Experience </UiButton>
@@ -24,7 +25,8 @@
               <template #content>
                 <div class="secure__item-content">
                   <span class="secure__item-title">Schedule<br />Investment Consultation</span>
-                  <p class="secure__item-description">Connect with our experienced investment team for a personalized
+                  <p class="secure__item-description" v-prevent-widow>Connect with our experienced investment team for a
+                    personalized
                     session. We’ll walk you through projected returns, legal frameworks, ownership models, and all
                     supporting documentation.
                   </p>
@@ -40,7 +42,8 @@
                 <div class="secure__item-content">
                   <span class="secure__item-title">Request
                     Financial Model</span>
-                  <p class="secure__item-description">Get a clear picture of your investment with easy-to-understand
+                  <p class="secure__item-description" v-prevent-widow>Get a clear picture of your investment with
+                    easy-to-understand
                     cash
                     flow projections, tax insights, and real-life examples.
                   </p>
@@ -56,7 +59,8 @@
                 <div class="secure__item-content">
                   <span class="secure__item-title">Book<br />Site Visit
                   </span>
-                  <p class="secure__item-description">Experience VERDANA firsthand with a guided tour of our show units,
+                  <p class="secure__item-description" v-prevent-widow>Experience VERDANA firsthand with a guided tour of
+                    our show units,
                     a
                     walk through the neighborhood, and a full overview of the investment opportunity.
                   </p>

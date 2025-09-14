@@ -5,7 +5,7 @@
         <h2 class="perfomance__heading">Market Performance & Projections</h2>
         <span class="perfomance__subheading">Future projections</span>
       </div>
-      <p class="perfomance__description">
+      <p class="perfomance__description" v-prevent-widow>
         Historical performance and forward-looking projections from Sanur’s real estate and tourism growth trends.
       </p>
     </div>
@@ -152,6 +152,8 @@ import UiButton from '../ui/uiButton.vue';
     border-radius: vw(15);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    // grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
 
     @include mobile {
       border: none;
@@ -162,10 +164,12 @@ import UiButton from '../ui/uiButton.vue';
   }
 
   &__item {
-    aspect-ratio: 3 / 2;
+    min-height: 250px;
+    // aspect-ratio: 3 / 2;
     padding: vw(35) vw(55);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
     /* Добавляем внутренние границы */
     border-right: vw(1) solid rgb($yellow, 0.26);
     border-bottom: vw(1) solid rgb($yellow, 0.26);

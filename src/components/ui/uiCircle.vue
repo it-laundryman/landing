@@ -45,7 +45,7 @@ watch(() => props.position, () => {
 .circle {
   position: absolute;
   inset: 0;
-  border: 1px solid #b1975d;
+  border: 1px solid $yellow-dark;
   border-radius: 50%;
 }
 
@@ -66,7 +66,7 @@ watch(() => props.position, () => {
   left: 50%;
   width: vw(20);
   height: vw(20);
-  background: #b1975d;
+  background: $yellow-dark;
   border-radius: 50%;
   transform: translateX(-50%) translateY(vw(-10));
 
