@@ -22,7 +22,8 @@
     "element-plus": "^2.11.1",
     "gsap": "^3.13.0",
     "swiper": "^11.2.10",
-    "vue": "^3.5.20"
+    "vue": "^3.5.20",
+    "vue-dompurify-html": "^5.3.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",

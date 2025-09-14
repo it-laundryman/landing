@@ -17,35 +17,37 @@
           <UiButton class="header__btn" variant="solid-yellow" shape="rounded" size="lg">Contact us</UiButton>
         </div>
       </header>
+      <div class="main-info">
+        <div class="main-info__content">
+          <div class="main-info__title-wrapper">
+            <h1 class="main-info__title">
+              Invest<br />
+              in VERDANA<br />Sanur
+            </h1>
+            <span class="main-info__description"><span class="montecarloscriptb">R</span>esidences</span>
+          </div>
+
+          <div class="main-info__top">
+            <p class="main-info__text" v-prevent-widow>Invest in a premium Bali estate with turnkey management,
+              transparent returns,
+              and developer-direct access with full legal clarity.</p>
+            <div class="main-info__actions">
+              <UiButton class="main-info__button" variant="solid-yellow" shape="rounded" size="lg">Calculate Returns
+              </UiButton>
+              <UiButton class="main-info__button" variant="outline-transparent-yellow" shape="rounded" size="lg">View
+                Presentation
+              </UiButton>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
     </div>
     <Transition name="slide-left">
       <MainMenu v-if="isOpenMenu" :class="{ 'opened': isOpenMenu }" :isOpen="isOpenMenu" @close="toggleMenu" />
     </Transition>
-    <div class="main-info">
-      <div class="main-info__content">
-        <div class="main-info__title-wrapper">
-          <h1 class="main-info__title">
-            Invest<br />
-            in VERDANA<br />Sanur
-          </h1>
-          <span class="main-info__description">Residences</span>
-        </div>
 
-        <div class="main-info__top">
-          <p class="main-info__text">Invest in a premium Bali estate with turnkey management, transparent returns,
-            and developer-direct access with full legal clarity.</p>
-          <div class="main-info__actions">
-            <UiButton class="main-info__button" variant="solid-yellow" shape="rounded" size="lg">Calculate Returns
-            </UiButton>
-            <UiButton class="main-info__button" variant="outline-transparent-yellow" shape="rounded" size="lg">View
-              Presentation
-            </UiButton>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
   </div>
 </template>
 
@@ -83,12 +85,14 @@ const toggleMenu = () => {
 
     display: flex;
     flex-direction: column;
-    height: 98svh;
+    height: 100svh;
 
     @include mobile {
       margin: vmin(-20) vmin(-10) 0 vmin(-10);
       padding: vmin(20) vmin(10) 0 vmin(10);
-      height: calc(100svh - 12% - 26vmin);
+      // height: calc(100svh - 12% - 26vmin);
+      // height: calc(100svh - 12%);
+      height: 100svh;
     }
   }
 
@@ -102,25 +106,28 @@ const toggleMenu = () => {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding-bottom: calc(100svh - 12%);
+    padding-bottom: calc(100svh - 12.1%);
 
     @include mobile {
-      padding-bottom: 90svh;
+      // padding-bottom: 90svh;
+      padding-bottom: calc(100svh - 64%);
     }
   }
 }
 
 
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: flex-start;
-  justify-content: space-between;
+  // justify-content: space-between;
   z-index: 10;
   color: #fff;
 }
 
 /* бургер */
 .header__burger {
+  justify-self: flex-start;
   padding: vw(16) vw(25);
   border: vw(1.5) solid $yellow;
   border-radius: vw(50);
@@ -155,6 +162,7 @@ const toggleMenu = () => {
 
 /* логотип */
 .header__logo {
+  justify-self: center;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -165,7 +173,7 @@ const toggleMenu = () => {
   height: vw(130);
 
   @include mobile {
-    margin-top: vmin(-7);
+    // margin-top: vmin(-7);
     width: vmin(67);
     height: vmin(74);
   }
@@ -173,6 +181,7 @@ const toggleMenu = () => {
 
 /* справа */
 .header__actions {
+  justify-self: flex-end;
   display: flex;
   align-items: center;
   gap: vw(20);
@@ -227,10 +236,12 @@ const toggleMenu = () => {
   position: relative;
   z-index: 2;
   margin-top: auto;
-  position: absolute;
+  // position: absolute;
   bottom: 0;
-  left: vw(45);
-  right: vw(45);
+  // left: vw(45);
+  left: 0;
+  // right: vw(45);
+  right: 0;
   display: grid;
   margin-bottom: 0;
 
@@ -238,6 +249,7 @@ const toggleMenu = () => {
     left: 0;
     right: 0;
     position: relative;
+    margin-bottom: vmin(16);
   }
 
   &__content {
@@ -255,7 +267,7 @@ const toggleMenu = () => {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    padding-bottom: vw(65);
+    padding-bottom: vw(72);
 
     @include mobile {
       width: fit-content;
@@ -313,7 +325,7 @@ const toggleMenu = () => {
     flex-direction: column;
     align-self: center;
     gap: vw(48);
-    margin-top: vw(35);
+    margin-top: vw(18);
     align-items: flex-start;
     width: fit-content;
     justify-self: flex-end;

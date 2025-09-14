@@ -5,7 +5,7 @@
         <h2 class="documentation__heading">Legal Structure
           & Documentation</h2>
       </div>
-      <p class="documentation__description">
+      <p class="documentation__description" v-prevent-widow>
         We ensure secure international investment with full legal compliance, clear documentation, and
         institutional-grade transparency.
       </p>
@@ -28,18 +28,19 @@
         </ul>
       </div>
     </UiSlider> -->
-    <swiper-container :slides-per-view="3" :space-between="spaceBetween" :breakpoints="{
-      768: {
-        slidesPerView: 3,
-      },
-      320: {
-        slidesPerView: 1.2,
-      },
-    }" @swiperprogress="onProgress" @swiperslidechange="onSlideChange" :navigation="{
-      nextEl: '.documentation__list-button--right',
-      prevEl: '.documentation__list-button--left',
-    }">
-      <swiper-slide>
+    <swiper-container class="my-swiper" :slides-per-view="3" :autoHeight="false" :space-between="spaceBetween"
+      :breakpoints="{
+        768: {
+          slidesPerView: 3,
+        },
+        320: {
+          slidesPerView: 1.2,
+        },
+      }" @swiperprogress="onProgress" @swiperslidechange="onSlideChange" :navigation="{
+        nextEl: '.documentation__list-button--right',
+        prevEl: '.documentation__list-button--left',
+      }">
+      <swiper-slide class="swiper-slide">
         <div class="documentation__item">
           <IconFolder class="documentation__item-icon" />
           <span class="documentation__item-title">Ownership Structure</span>
@@ -52,7 +53,7 @@
           </ul>
         </div>
       </swiper-slide>
-      <swiper-slide>
+      <swiper-slide class="swiper-slide">
         <div class="documentation__item">
           <IconMuseum class="documentation__item-icon" />
           <span class="documentation__item-title">Government Compliance</span>
@@ -65,7 +66,7 @@
           </ul>
         </div>
       </swiper-slide>
-      <swiper-slide>
+      <swiper-slide class="swiper-slide">
         <div class="documentation__item">
           <IconUnlock class="documentation__item-icon documentation__item-icon--unlock" />
           <span class="documentation__item-title">Investor Protection</span>
@@ -78,7 +79,7 @@
           </ul>
         </div>
       </swiper-slide>
-      <swiper-slide>
+      <swiper-slide class="swiper-slide">
         <div class="documentation__item">
           <IconLibrary class="documentation__item-icon" />
           <span class="documentation__item-title">Financial Transparency</span>
@@ -144,6 +145,10 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+::v-deep(.my-swiper .swiper-slide) {
+  height: auto !important;
+}
+
 .documentation {
   padding: vw(45) vw(43) vw(40) vw(43);
   background-color: $gray-light;
@@ -219,7 +224,8 @@ onMounted(() => {
     padding: vw(35) vw(30);
     border-radius: vw(15);
     border: vw(1) solid rgb($yellow, 0.6);
-    aspect-ratio: 1;
+    // aspect-ratio: 7 / 6;
+    grid-template-rows: 33% 0.3fr 0fr;
 
     @include mobile {
       display: flex;

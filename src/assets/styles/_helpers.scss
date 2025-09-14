@@ -1,6 +1,5 @@
 
-@import './vars';
-@import './fonts';
+@use "vars" as *;
 
 @function vw($value, $size: 1265) {
   @return calc($value / $size) * 100vw;

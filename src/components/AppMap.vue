@@ -448,6 +448,12 @@ const onMapReady = () => {
     isMapLoaded.value = true
   }
 }
+
+defineExpose(
+  {
+    markers
+  }
+)
 </script>
 
 <style scoped lang="scss">

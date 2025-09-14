@@ -7,7 +7,7 @@
 
     <div class="calculator__content">
       <div class="calculator__intro">
-        <p class="calculator__description">
+        <p class="calculator__description" v-prevent-widow>
           Calculate your detailed returns including taxes, management fees, and seasonal
           variations. Real-time analysis based on current market conditions.
         </p>
@@ -77,7 +77,8 @@
       <div class="calculator__results">
         <div class="calculator__results-item calculator__chart">
           <span class="calculator__chart-label">Investment Analysis Results</span>
-          <p class="calculator__chart-desc">Investment Parameters: Analysis based on N/A occupancy rate, 0% marketing
+          <p class="calculator__chart-desc" v-prevent-widow>Investment Parameters: Analysis based on N/A occupancy
+            rate, 0% marketing
             fee, 30% management fee. Net monthly proceedings: IDR 0. Calculations reflect current market conditions and
             selected rental strategy.</p>
         </div>
@@ -103,7 +104,7 @@
         </div>
 
         <div class="calculator__note">
-          <p class="calculator__note-text">
+          <p class="calculator__note-text" v-prevent-widow>
             Note: The information provided is theoretical data for which is not responsible.
             Decisions are made by the user independently at their own risk.
             This is not an investment recommendation.

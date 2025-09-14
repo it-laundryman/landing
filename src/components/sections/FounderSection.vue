@@ -22,24 +22,26 @@
 
       <div class="founder__title">
         <h2 class="founder__heading">FOUNDER MESSAGE</h2>
-        <span class="founder__subheading">We are</span>
+        <span class="founder__subheading"><span class="montecarloscriptb">W</span>e are</span>
       </div>
       <div class="founder__image">
         <img src="@/assets/images/founder.png" alt="founder" class="founder__img">
       </div>
       <div class="founder__description">
         <span class="founder__symbol">”</span>
-        <p class="founder__text">We believe luxury isn’t about excess. It’s about creating places people genuinely
-          connect with. Homes and spaces designed around lifestyle, culture, and long-term value.
-          We see Southeast Asia as one of the most exciting markets in the world, where growth and cultural richness
-          come together. We’re combining smart design, sustainability, and authenticity to create lasting impact for
-          residents, investors, and communities.
+        <p class="founder__text" v-prevent-widow>We&nbsp;believe luxury isn&rsquo;t about excess. It&rsquo;s about
+          creating places
+          people genuinely connect with. Homes and spaces designed around lifestyle, culture, and long-term value.
+          We&nbsp;see Southeast Asia as&nbsp;one of&nbsp;the most exciting markets in&nbsp;the world, where growth and
+          cultural richness come together. We&rsquo;re combining smart design, sustainability, and authenticity
+          to&nbsp;create lasting impact for residents, investors, and communities.
         </p>
       </div>
       <div class="founder__about">
         <p class="founder__about-text">
-          Labna Capital was built on a shared vision and 50+ years of experience in real estate, strategy, and finance.
-          From global boardrooms to local communities, we’ve seen what makes projects truly meaningful.</p>
+          Labna Capital was built on&nbsp;a&nbsp;shared vision and 50+&nbsp;years of&nbsp;experience in&nbsp;real
+          estate, strategy, and finance. From global boardrooms to&nbsp;local communities, we&rsquo;ve seen what makes
+          projects truly meaningful.</p>
       </div>
     </div>
 
@@ -139,10 +141,9 @@
 
   @include mobile {
     padding: 0 vmin(10) vmin(40);
-    margin-top: calc(100vw - 100.25vmin);
-    padding-top: calc(100vw - 50.25vmin);
-    padding-top: 40vmax;
-    margin-top: -5vmax;
+    // margin-top: calc(100vw - 100.25vmin);
+    // padding-top: calc(100vw - 50.25vmin);
+    padding-top: vmin(50);
   }
 
   &__content {
@@ -255,13 +256,14 @@
   }
 
   &__text {
-    text-wrap: balance;
+    text-wrap: pretty;
     font-family: 'Wix Madefor Display';
     font-weight: 400;
     font-size: vw(16);
     line-height: vw(22);
     letter-spacing: 0px;
     color: $white;
+    hanging-punctuation: allow-end;
 
     @include mobile {
       font-size: vmin(12);
