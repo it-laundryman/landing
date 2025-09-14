@@ -121,6 +121,8 @@ import UiButton from '../ui/uiButton.vue';
     height: initial;
     aspect-ratio: 619 / 550;
     border-radius: vw(15);
+    object-fit: cover;
+    object-position: center;
 
     @include mobile {
       width: vmin(260);
