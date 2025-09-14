@@ -292,7 +292,7 @@ register();
     flex-direction: column;
 
     @include mobile {
-      padding: vmin(43) vmin(33) vmin(43) vmin(45);
+      padding: vmin(45) vmin(33) vmin(43) vmin(45);
     }
   }
 
